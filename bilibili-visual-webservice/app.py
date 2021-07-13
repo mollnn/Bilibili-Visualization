@@ -2,6 +2,7 @@ from flask import Flask, jsonify, render_template
 from flask.helpers import make_response
 import connectorSSHMySQL as msql
 from flask_cors import CORS
+import jieba
 
 app = Flask(__name__)
 
@@ -92,6 +93,37 @@ def api_v_danmu_freq(cid):
     return jsonify(msql.query("bilibili", """select floor(floattime) as t, count(*) as cnt from Danmu where cid="{cid}" group by floor(floattime) order by t;""".format(cid=cid)))
 
 
+def wordFreqCount(txt):
+    words = jieba.lcut(txt)
+    counts = {}
+    for word in words:
+        if len(word) == 1:
+            continue
+        else:
+            counts[word] = counts.get(word, 0) + 1
+    items = list(counts.items())
+    items.sort(key=lambda x: x[1], reverse=True)
+    return items
+
+
+@app.route('/api/v/danmu/wordcount/<cid>/<int:cnt>')
+def api_v_danmu_wordcount(cid, cnt):
+    sqlres = msql.query(
+        "bilibili", """select text from Danmu where cid={cid}""".format(cid=cid))
+    lst = []
+    for i in sqlres:
+        lst += [i[0]]
+    str = ' '.join(lst)
+    wf = wordFreqCount(str)
+    ans = []
+    for i in wf:
+        ans += [i]
+        cnt -= 1
+        if cnt == 0:
+            break
+    return jsonify(ans)
+
+
 @app.route('/api/test/')
 def api_test():
     ans = jsonify({
@@ -101,4 +133,4 @@ def api_test():
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host="0.0.0.0",port=80,debug=True)
