@@ -22,6 +22,7 @@ def SSHMysql(DB, SQL, isDict=False):
     cursor.execute(SQL.encode('utf8')) 
     data = cursor.fetchall()
     cursor.close()
+    server.close()
     return data
 
 
