@@ -2,7 +2,7 @@ import pymysql
 from sshtunnel import SSHTunnelForwarder
 
 
-def SSHMysql(DB, SQL):
+def SSHMysql(DB, SQL, isDict=False):
     server = SSHTunnelForwarder(
         ssh_address_or_host=('131.mollnn.com', 22),  # 指定ssh登录的跳转机的address
         ssh_username='wzc',  # 跳转机的用户
@@ -16,7 +16,8 @@ def SSHMysql(DB, SQL):
         user="root",
         passwd="123456",
         database=DB, 
-        charset='utf8')
+        charset='utf8',
+        cursorclass=pymysql.cursors.DictCursor if isDict==True else pymysql.cursors.Cursor)
     cursor = db.cursor()
     cursor.execute(SQL.encode('utf8')) 
     data = cursor.fetchall()
@@ -24,8 +25,8 @@ def SSHMysql(DB, SQL):
     return data
 
 
-def query(DB, SQL):
-    return SSHMysql(DB, SQL)
+def query(DB, SQL, isDict=False):
+    return SSHMysql(DB, SQL, isDict=isDict)
 
 
 if __name__ == "__main__":
