@@ -7,7 +7,6 @@ import jieba
 app = Flask(__name__)
 
 app.config['JSON_AS_ASCII'] = False
-# 指定浏览器渲染的文件类型，和解码格式；
 app.config['JSONIFY_MIMETYPE'] = "application/json;charset=utf-8"
 
 CORS(app, resources=r'/*')
@@ -91,6 +90,8 @@ def api_vinfo(bv):
 @app.route('/api/v/danmu/freq/<cid>/')
 def api_v_danmu_freq(cid):
     return jsonify(msql.query("bilibili", """select floor(floattime) as t, count(*) as cnt from Danmu where cid="{cid}" group by floor(floattime) order by t;""".format(cid=cid)))
+
+
 
 
 def wordFreqCount(txt):
