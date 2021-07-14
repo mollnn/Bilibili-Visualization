@@ -81,6 +81,10 @@ def api_reply_distrib(d):
 def api_type_distrib():
     return jsonify(msql.query("bilibili", "select tname, count(*) as cnt from Vinfo group by tname order by cnt desc;"))
 
+@app.route('/api/type/distrib10/')
+def api_type_distrib_10():
+    return jsonify(msql.query("bilibili", """ select tname, cast(cnt as signed) as cnt from (select tname, count(*) as cnt from Vinfo vv1 group by tname order by cnt desc limit 10) as t1 union all select "其它",cast(sum(cnt) as signed) as cnt from (select tname, count(*) as cnt from Vinfo vv2 group by tname order by cnt desc limit 10,99) as t2"""))
+
 
 @app.route('/api/v/info/<bv>/')
 def api_vinfo(bv):
