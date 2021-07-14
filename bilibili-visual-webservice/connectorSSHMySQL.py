@@ -1,5 +1,6 @@
 import pymysql
 from sshtunnel import SSHTunnelForwarder
+import time
 
 
 def SSHMysql(DB, SQL, isDict=False):
@@ -33,7 +34,7 @@ def SSHMysql(DB, SQL, isDict=False):
             flag=0
         else:
             flag=0
-        
+        time.sleep(0.2)
     return data
 
 

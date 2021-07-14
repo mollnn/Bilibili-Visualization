@@ -124,7 +124,7 @@ def api_v_danmu_wordcount(cid, cnt):
     wf = wordFreqCount(str)
     ans = []
     for i in wf:
-        ans += [i]
+        ans += [{"name":i[0], "value":i[1]}]
         cnt -= 1
         if cnt == 0:
             break
