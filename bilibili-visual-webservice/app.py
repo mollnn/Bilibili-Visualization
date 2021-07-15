@@ -11,6 +11,9 @@ app.config['JSONIFY_MIMETYPE'] = "application/json;charset=utf-8"
 
 CORS(app, resources=r'/*')
 
+@app.route('/')
+def api_index():
+    return render_template("index.html")
 
 @app.route('/api/demo/')
 def api_demo():
