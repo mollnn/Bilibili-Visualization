@@ -1,0 +1,70 @@
+<template>
+  <div style="width: 100%; height: 300px">
+    <div id="echartContainer7" style="width: 100%; height: 100%"></div>
+  </div>
+</template>
+
+<script>
+export default {
+  name: "chart7",
+  data() {
+    return {};
+  },
+  methods: {
+    draw() {
+      var myChart = this.$echarts.init(
+        document.getElementById("echartContainer7"),
+        "infographic"
+      );
+      myChart.setOption({
+    xAxis: {
+        type: 'value',
+          min:0,
+          max:20000,
+        // data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+    },
+    yAxis: {
+        type: 'value'
+    },
+    series: [{
+        data: [],
+        type: 'bar'
+    }],
+            grid: [
+            {
+                top:10,
+                bottom:30,
+                left:"15%",
+                right:"10%",
+            }
+        ]
+}
+      );
+      //   myChart.setOption({
+      //     xAxis: {},
+      //     yAxis: {},
+      //     series: [
+      //       {
+      //         symbolSize: 5,
+      //         data: [],
+      //         type: "scatter",
+      //       },
+      //     ],
+      //   });
+      this.$http
+        .get("http://131.mollnn.com:5000/api/favorite/distrib/2000/", {
+          headers: { "Access-Control-Allow-Origin": "*" },
+        })
+        .then((res) => {
+          myChart.hideLoading();
+          myChart.setOption({ series: [{ data: res.data }] });
+        });
+    },
+  },
+  mounted() {
+    this.draw();
+  },
+};
+</script>
+
+<style></style>
