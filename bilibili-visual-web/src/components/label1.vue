@@ -24,20 +24,30 @@
   </div>
 </template>
 
+
 <script>
+var tempuse = "BV1144y1q7ve";
+import Bus from '.././bus.js';
 export default {
   name: "label1",
   data() {
-    return {};
+    return {
+      val:'',
+    };
   },
   methods: {
+    ttt(){
+      var elem4 = document.getElementById("xxx4");
+      elem4.textContent = tempuse;
+      this.draw();
+    },
     draw() {
       var elem1 = document.getElementById("xxx1");
       var elem2 = document.getElementById("xxx2");
       var elem3 = document.getElementById("xxx3");
       var elem4 = document.getElementById("xxx4");
       this.$http
-        .get("http://131.mollnn.com:5000/api/v/info/BV1144y1q7ve/", {
+        .get("http://131.mollnn.com:5000/api/v/info/" + tempuse + "/", {
           headers: { "Access-Control-Allow-Origin": "*" },
         })
         .then((res) => {
@@ -48,7 +58,18 @@ export default {
         });
     },
   },
+    //   created (){
+    //     Bus.$on('change',(val)=>{
+    //     alert("fsadfads");
+    //     this.val = val;
+    //   });
+    // },
   mounted() {
+    // var that = this;      
+    Bus.$on('change',(val)=>{
+        tempuse = val;
+        this.ttt();
+      });
     this.draw();
   },
 };

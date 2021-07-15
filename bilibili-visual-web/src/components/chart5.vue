@@ -1,79 +1,68 @@
 <template>
-  <div style="width: 100%; height: 300px">
-    <div id="echartContainer5" style="width: 100%; height: 100%"></div>
+  <div>
+    <div id="echartContainer" style="width: 100%; height: 500px"></div>
   </div>
 </template>
 
 <script>
 export default {
-  name: "chart5",
+  name: "chart1",
   data() {
     return {};
   },
   methods: {
     draw() {
       var myChart = this.$echarts.init(
-        document.getElementById("echartContainer5"),
+        document.getElementById("echartContainer"),
         "infographic"
       );
-      myChart.setOption(
-{
+      myChart.setOption({
+    backgroundColor: '#fff',
     tooltip: {
         trigger: 'item'
     },
-    legend: {
-        top: '5%',
-        left: 'center'
+
+    visualMap: {
+        show: false,
+        min: 80,
+        max: 600,
+        inRange: {
+            colorLightness: [0, 1]
+        }
     },
     series: [
         {
             name: '访问来源',
             type: 'pie',
-            radius: ['40%', '70%'],
-            avoidLabelOverlap: false,
-            itemStyle: {
-                borderRadius: 10,
-                borderColor: '#fff',
-                borderWidth: 2
-            },
+            radius: '55%',
+            center: ['50%', '50%'],
+            data: [].sort(function (a, b) { return a.value - b.value; }),
+            roseType: 'radius',
             label: {
-                show: false,
-                position: 'center'
-            },
-            emphasis: {
-                label: {
-                    show: true,
-                    fontSize: '40',
-                    fontWeight: 'bold'
-                }
+                color: 'rgba(255, 255, 255, 0.3)'
             },
             labelLine: {
-                show: false
+                lineStyle: {
+                    color: 'rgb(154, 200, 240, 0.3)'
+                },
+                smooth: 0.2,
+                length: 10,
+                length2: 20
             },
-            data: [
-                {value: 1048, name: '搜索引擎'},
-                {value: 735, name: '直接访问'},
-                {value: 580, name: '邮件营销'},
-                {value: 484, name: '联盟广告'},
-                {value: 300, name: '视频广告'}
-            ]
+            itemStyle: {
+                shadowBlur: 200,
+                shadowColor: 'rgb(154, 200, 240, 0.3)'
+            },
+
+            animationType: 'scale',
+            animationEasing: 'elasticOut',
+            animationDelay: function (idx) {
+                return Math.random() * 200;
+            }
         }
     ]
-}
-      );
-      //   myChart.setOption({
-      //     xAxis: {},
-      //     yAxis: {},
-      //     series: [
-      //       {
-      //         symbolSize: 5,
-      //         data: [],
-      //         type: "scatter",
-      //       },
-      //     ],
-      //   });
-      this.$http
-        .get("http://131.mollnn.com:5000/api/view/distrib/100000/", {
+});
+this.$http.get("131.mollnn.com:5000/api/type/distrib/", {
           headers: { "Access-Control-Allow-Origin": "*" },
         })
         .then((res) => {

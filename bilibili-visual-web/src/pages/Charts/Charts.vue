@@ -45,7 +45,7 @@
       </b-col>
       <b-col md="6" xl="4" sm="6" xs="12">
         <div class="pb-xlg h-100">
-          <Widget class="h-100 mb-0" title="视频封面" close>
+          <Widget class="h-100 mb-0 " title="视频封面" close>
             <!-- <chart1 style="height: 175px"/> -->
             <label3/>
             <!-- <echart :options="cd.echarts.donut" :init-options="initEchartsOptions" style="height: 175px"></echart> -->
@@ -57,7 +57,7 @@
     <b-row>
       <b-col  xs="12">
         <Widget
-          title="<h5>其他信息 <span class='fw-semi-bold'>表格</span></h5>"
+          title="<h5 class='fw-semi-bold'>视频相关信息表格</h5>"
           bodyClass="widget-table-overflow"
           customHeader
         >

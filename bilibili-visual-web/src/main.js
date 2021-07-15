@@ -17,6 +17,8 @@ import VueResource from 'vue-resource'
 
 import * as echarts from 'echarts';
 
+const Bus = new Vue()
+ 
 Vue.prototype.$echarts = echarts
 Vue.use(VueResource)
 
@@ -40,5 +42,6 @@ new Vue({
   el: '#app',
   store,
   router,
+  Bus,
   render: h => h(App),
 });

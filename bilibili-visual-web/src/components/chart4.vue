@@ -6,7 +6,7 @@
 
 <script>
 export default {
-  name: "chart4",
+  name: "chart2",
   data() {
     return {};
   },
@@ -17,59 +17,102 @@ export default {
         "infographic"
       );
       myChart.setOption({
-        tooltip: {
-          trigger: "axis",
-          position: function (pt) {
-            return [pt[0], "10%"];
-          },
-        axisPointer: {
-            animation: false
+    tooltip: {
+        trigger: 'axis',
+        position: function (pt) {
+            return [pt[0], '10%'];
         }
+    }, 
+    toolbox: {
+        feature: {
+            restore: {},
+            saveAsImage: {}
+        }
+    },
+    xAxis: {
+        type: 'log',
+        logbase:10,
+        min:80,
+        max:15000,
+        boundaryGap: false,
+        axisLabel: {
+            inside: true,
+            textStyle: {
+                color: '#fff'
+            }
         },
-        xAxis: {
-          type: "log",
-          boundaryGap: false,
-          logbase:10,
-          min:100,
-          max:330600,
+        show:false,
+        axisTick: {
+            show: false
         },
-        yAxis: {
-          type: "value",
-          boundaryGap: false,
+        axisLine: {
+            show: false
         },
-        series: [
-          {
-            name: "播放量量",
-            type: "line",
-            smooth: true,
-            symbol: "none",
-            areaStyle: {},
-            data: [
-            ],
-          },
-        ],
-        grid: [
+
+    },
+    yAxis: {
+        type: 'value',
+        boundaryGap: false,
+        axisLine: {
+            show: false
+        },
+        axisTick: {
+            show: false
+        },
+        axisLabel: {
+            textStyle: {
+                color: '#999'
+            }
+        }
+    },
+    dataZoom: [
+        {
+            type: 'inside'
+        }
+    ],
+    series: [
+        {
+            name: '播放量',
+            type: 'line',
+            symbol: 'none',
+            sampling: 'lttb',
+            itemStyle: {
+                color: 'rgb(154,200,240)'
+            },
+            areaStyle: {
+                color: this.$echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                    offset: 0,
+                    color: 'rgb(255, 158, 68)'
+                }, {
+                    offset: 1,
+                    color: 'rgb(255, 70, 131)'
+                }])
+            },
+            data: []
+        }
+    ],
+    grid: [
             {
-                top:10,
-                bottom:30,
+                top:20,
+                bottom:20,
                 left:"10%",
                 right:"10%",
             }
         ]
-      });
-      //   myChart.setOption({
-      //     xAxis: {},
-      //     yAxis: {},
-      //     series: [
-      //       {
-      //         symbolSize: 5,
-      //         data: [],
-      //         type: "scatter",
-      //       },
-      //     ],
-      //   });
+});
+
+// Enable data zoom when user click bar.
+var zoomSize = 6;
+myChart.on('click', function (params) {
+    console.log(dataAxis[Math.max(params.dataIndex - zoomSize / 2, 0)]);
+    myChart.dispatchAction({
+        type: 'dataZoom',
+        startValue: dataAxis[Math.max(params.dataIndex - zoomSize / 2, 0)],
+        endValue: dataAxis[Math.min(params.dataIndex + zoomSize / 2, data.length - 1)]
+    });
+});
       this.$http
-        .get("http://131.mollnn.com:5000/api/reply/distrib/100/", {
+        .get("http://131.mollnn.com:5000/api/reply/distrib/20/", {
           headers: { "Access-Control-Allow-Origin": "*" },
         })
         .then((res) => {

@@ -6,7 +6,7 @@
 
 <script>
 export default {
-  name: "chart9",
+  name: "chart2",
   data() {
     return {};
   },
@@ -16,44 +16,105 @@ export default {
         document.getElementById("echartContainer9"),
         "infographic"
       );
-      myChart.setOption({
-    xAxis: {
-        type: 'value',
-          min:0,
-          max:1500000,
-        // data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+      myChart.setOption({tooltip: {
+        trigger: 'axis'
     },
-    yAxis: {
-        type: 'log',
-        logbase:10,
+    toolbox: {
+        show: true,
+        feature: {
+            dataView: {show: true, readOnly: false},
+            magicType: {show: true, type: ['line', 'bar']},
+            restore: {show: true},
+            saveAsImage: {show: true}
+        }
     },
-    series: [{
-        data: [],
-        type: 'bar'
-    }],
-            grid: [
+    calculable: true,
+    xAxis: [
+        {
+            type: 'value',
+            show: false,
+            max: 10000,
+            axisLabel: {
+            inside: true,
+            textStyle: {
+                color: '#fff'
+            }
+        },
+        axisTick: {
+            show: false
+        },
+        axisLine: {
+            show: false
+        },
+        z: 10
+        }
+    ],
+    yAxis: [
+        {
+            type: 'value',
+            splitLine: {show: false},
+            axisLine: {
+            show: false
+        },
+        axisTick: {
+            show: false
+        },
+        axisLabel: {
+            textStyle: {
+                color: '#999'
+            }
+        }
+        }
+    ],
+    dataZoom: [
+        {
+            type: 'inside'
+        }
+    ],
+    series: [
+        {
+            showBackground: true,
+            itemStyle: {
+                color: 'rgb(154,200,240)'
+            },
+             emphasis: {
+                itemStyle: {
+                    color: this.$echarts.graphic.LinearGradient(
+                        0, 0, 0, 1,
+                        [
+                            {offset: 0, color: '#2378f7'},
+                            {offset: 0.7, color: '#2378f7'},
+                            {offset: 1, color: '#83bff6'}
+                        ]
+                    )
+                }
+            },
+            name: '视频量',
+            type: 'bar',
+            data: [],
+        },
+    ],
+    grid: [
             {
                 top:10,
-                bottom:30,
-                left:"18%",
-                right:"0%",
+                bottom:20,
+                left:"10%",
+                right:"10%",
             }
         ]
-}
-      );
-      //   myChart.setOption({
-      //     xAxis: {},
-      //     yAxis: {},
-      //     series: [
-      //       {
-      //         symbolSize: 5,
-      //         data: [],
-      //         type: "scatter",
-      //       },
-      //     ],
-      //   });
+});
+    // Enable data zoom when user click bar.
+var zoomSize = 6;
+myChart.on('click', function (params) {
+    console.log(dataAxis[Math.max(params.dataIndex - zoomSize / 2, 0)]);
+    myChart.dispatchAction({
+        type: 'dataZoom',
+        startValue: dataAxis[Math.max(params.dataIndex - zoomSize / 2, 0)],
+        endValue: dataAxis[Math.min(params.dataIndex + zoomSize / 2, data.length - 1)]
+    });
+});
       this.$http
-        .get("http://131.mollnn.com:5000/api/likes/distrib/100000/", {
+        .get("http://131.mollnn.com:5000/api/coin/distrib/1000/", {
           headers: { "Access-Control-Allow-Origin": "*" },
         })
         .then((res) => {
@@ -69,3 +130,11 @@ export default {
 </script>
 
 <style></style>
+
+
+
+
+
+
+
+

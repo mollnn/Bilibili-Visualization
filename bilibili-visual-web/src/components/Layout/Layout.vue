@@ -3,7 +3,7 @@
   <Sidebar />
   <!-- <Helper /> -->
   <div class="wrap">
-    <Header />
+    <Header  />
     <v-touch class="content" @swipe="handleSwipe" :swipe-options="{direction: 'horizontal'}">
       <breadcrumb-history></breadcrumb-history>
       <transition name="router-animation">

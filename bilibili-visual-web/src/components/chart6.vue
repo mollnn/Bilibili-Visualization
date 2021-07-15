@@ -50,13 +50,30 @@ export default {
             labelLine: {
                 show: false
             },
-            data: []
+            data: [
+                {value: 1048, name: '搜索引擎'},
+                {value: 735, name: '直接访问'},
+                {value: 580, name: '邮件营销'},
+                {value: 484, name: '联盟广告'},
+                {value: 300, name: '视频广告'}
+            ]
         }
     ]
 }
       );
+      //   myChart.setOption({
+      //     xAxis: {},
+      //     yAxis: {},
+      //     series: [
+      //       {
+      //         symbolSize: 5,
+      //         data: [],
+      //         type: "scatter",
+      //       },
+      //     ],
+      //   });
       this.$http
-        .get("http://131.mollnn.com:5000/api/type/distrib10/", {
+        .get("http://131.mollnn.com:5000/api/view/distrib/100000/", {
           headers: { "Access-Control-Allow-Origin": "*" },
         })
         .then((res) => {
