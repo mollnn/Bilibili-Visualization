@@ -4,20 +4,20 @@
   <h6 id="xxx2">+830</h6> -->
   <div>
     <div class="d-flex justify-content-between align-items-center mb-lg">
-      <h2 id="xxx1">fuck</h2>
+      <h2 id="xxx1">...</h2>
       <i class="la la-arrow-right text-primary la-lg rotate-315" />
     </div>
     <div class="d-flex flex-wrap justify-content-between">
       <div class="mt">
-        <h6 id="xxx2">fuck</h6>
-        <p class="text-muted mb-0 mr"><small>播放量</small></p>
+        <h6 id="xxx2">...</h6>
+        <p class="text-muted mb-0 mr"><small>点赞量</small></p>
       </div>
       <div class="mt">
-        <h6 id="xxx3">fuck</h6>
+        <h6 id="xxx3">...</h6>
         <p class="text-muted mb-0"><small>弹幕量</small></p>
       </div>
       <div class="mt">
-        <h6 id="xxx4">fuck</h6>
+        <h6 id="xxx4">...</h6>
         <p class="text-muted mb-0 mr"><small>时长</small></p>
       </div>
     </div>
@@ -37,8 +37,14 @@ export default {
   },
   methods: {
     ttt(){
+      var elem1 = document.getElementById("xxx1");
+      var elem2 = document.getElementById("xxx2");
+      var elem3 = document.getElementById("xxx3");
       var elem4 = document.getElementById("xxx4");
-      elem4.textContent = tempuse;
+      elem1.textContent = "...";
+      elem2.textContent = "...";
+      elem3.textContent = "...";
+      elem4.textContent = "...";
       this.draw();
     },
     draw() {
@@ -52,7 +58,7 @@ export default {
         })
         .then((res) => {
           elem1.textContent = res.data[0].view;
-          elem2.textContent = res.data[0].view;
+          elem2.textContent = res.data[0].likes;
           elem3.textContent = res.data[0].danmaku;
           elem4.textContent = res.data[0].duration;
         });

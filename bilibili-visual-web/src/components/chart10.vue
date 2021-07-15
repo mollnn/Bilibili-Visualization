@@ -57,7 +57,7 @@ export default {
             //textRotation: [0, 45, 90, -45],
             rotationRange: [-45, 90],
             shape: "circle",
-            width: 1400,
+            width: 1200,
             height: 999,
             textPadding: 0,
             autoSize: {

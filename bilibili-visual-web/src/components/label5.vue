@@ -38,11 +38,11 @@ export default {
         }
       },
       grid: {
-        x: 25,
+        x: 50,
         top: 50,
         bottom: 80,
         height: 250,
-        width:430
+        width:570
       },
       xAxis: [
         {

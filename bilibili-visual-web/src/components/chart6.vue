@@ -49,7 +49,6 @@ export default {
                 label: {
                     show: true,
                     fontSize: '20',
-                    fontWeight: 'bold'
                 }
             },
             labelLine: {

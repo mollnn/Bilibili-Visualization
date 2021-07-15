@@ -8,7 +8,7 @@
     <b-row>
       <b-col md="6" xl="3" sm="6" xs="12">
         <div class="pb-xlg h-100">
-          <Widget class="h-100 mb-0" title ="相应视频信息" close>
+          <Widget class="h-100 mb-0" title ="播放量" close>
             <label1/>
             <!-- <div
               class="d-flex justify-content-between align-items-center mb-lg"
@@ -57,7 +57,7 @@
     <b-row>
       <b-col  xs="12">
         <Widget
-          title="<h5 class='fw-semi-bold'>视频相关信息表格</h5>"
+          title="<h5>视频信息</h5>"
           bodyClass="widget-table-overflow"
           customHeader
         >
@@ -75,9 +75,9 @@
       </b-col>
     </b-row>
      <b-row>
-        <b-col xs='12' lg='5'>
+        <b-col xs='12' lg='6'>
           <Widget
-              title="<h5>Echarts <span class='fw-semi-bold'>Line Chart</span></h5>"
+              title="<h5>弹幕时刻分布</h5>"
               close collapse customHeader
           >
             <!-- <echart :options="cd.echarts.line" :init-options="initEchartsOptions" style="height: 400px"></echart> -->
@@ -115,7 +115,7 @@
             </b-row>
           </Widget> -->
         </b-col>
-        <b-col xs='12' lg='7'>
+        <b-col xs='12' lg='6'>
           <div class="pb-xlg h-100">
             <Widget class="h-100 mb-0" title="弹幕词云" close>
               <chart10 style="height: 300px"/>
