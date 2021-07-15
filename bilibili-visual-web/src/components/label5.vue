@@ -1,0 +1,127 @@
+<template>
+  <div style="width: 100%; height: 350px">
+    <div id="label5" style="width: 100%; height: 100%"></div>
+  </div>
+</template>
+
+<script>
+var tempuse = "BV1144y1q7ve";
+import Bus from ".././bus.js";
+import config from './../config';
+
+const colors = config.app.colors;
+const {primary, warning, success} = colors;
+const chartColors = config.app.chartColors;
+const {axisColor} = chartColors;
+
+let lineColors = [primary, success, warning];
+export default {
+  name: "label5",
+  data() {
+    return {};
+  },
+  methods: {
+    ttt() { 
+      this.draw();
+    },
+    draw() {
+      var myChart = this.$echarts.init(
+        document.getElementById("label5"),
+        "infographic"
+      );
+      myChart.setOption({
+      color: lineColors,
+      tooltip: {
+        trigger: 'none',
+        axisPointer: {
+          type: 'cross'
+        }
+      },
+      grid: {
+        x: 25,
+        top: 50,
+        bottom: 80,
+        height: 250,
+        width:430
+      },
+      xAxis: [
+        {
+          type: 'value',
+          axisTick: {
+            alignWithLabel: true
+          },
+          axisLine: {
+            onZero: false,
+            lineStyle: {
+              color: lineColors[0]
+            }
+          },
+          axisPointer: {
+            label: {
+              formatter: function (params) {
+                return 'Precipitation  ' + params.value
+                  + (params.seriesData.length ? '：' + params.seriesData[0].data : '');
+              }
+            }
+          },
+        },
+        { 
+          type: 'value',
+          axisTick: {
+            alignWithLabel: true
+          },
+          axisLine: {
+            onZero: false,
+            lineStyle: {
+              color: lineColors[0]
+            }
+          },
+        }
+      ],
+      yAxis: [
+        {
+          type: 'value',
+          axisLabel: {
+            color: axisColor
+          },
+          axisLine: {
+            lineStyle: {
+              color: axisColor
+            }
+          },
+        }
+      ],
+      series: [
+        {
+          name: '弹幕量',
+          type: 'line',
+          xAxisIndex: 1,
+          smooth: true,
+          data: []
+        },
+      ]
+    });
+          this.$http
+        .get(
+          "http://131.mollnn.com:5000/api/v/danmu/freq/"+tempuse + "/",
+          {
+            headers: { "Access-Control-Allow-Origin": "*" },
+          }
+        )
+        .then((res) => {
+          myChart.hideLoading();
+          myChart.setOption({ series: [{ data: res.data }] });
+        });
+    },
+  },
+  mounted() {
+    Bus.$on("change", (val) => {
+      tempuse = val;
+      this.ttt();
+    });
+    this.draw();
+  },
+};
+</script>
+
+<style></style>

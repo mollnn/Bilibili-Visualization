@@ -6,7 +6,8 @@
       <b-col md="6" xl="3" sm="6" xs="12">
         <div class="pb-xlg h-100">
           <Widget class="h-100 mb-0" title="视频播放总数" close>
-            <div
+            <label6/>
+            <!-- <div
               class="d-flex justify-content-between align-items-center mb-lg"
             >
               <h2>4,332</h2>
@@ -25,7 +26,7 @@
                 <h6>4.5%</h6>
                 <p class="text-muted mb-0 mr"><small>总时长</small></p>
               </div>
-            </div>
+            </div> -->
           </Widget>
         </div>
       </b-col>
@@ -286,6 +287,7 @@ import chart6 from "@/components/chart6";
 import chart7 from "@/components/chart7";
 import chart8 from "@/components/chart8";
 import chart9 from "@/components/chart9";
+import label6 from "@/components/label6";
 export default {
   name: "Dashboard",
   components: {
@@ -297,6 +299,7 @@ export default {
     chart7,
     chart8,
     chart9,
+    label6,
     Widget,
     BigStat,
     echart: ECharts,

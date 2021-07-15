@@ -33,7 +33,7 @@
           </Widget>
         </div>
       </b-col>
-      <b-col md="6" xl="5" sm="6" xs="12">
+      <b-col md="6" xl="6" sm="6" xs="12">
         <div class="pb-xlg h-100">
           <Widget class="h-100 mb-0" title="视频简介" close>
             <label2 style = "height = 175px"/>
@@ -43,7 +43,7 @@
           </Widget>
         </div>
       </b-col>
-      <b-col md="6" xl="4" sm="6" xs="12">
+      <b-col md="6" xl="3" sm="6" xs="12">
         <div class="pb-xlg h-100">
           <Widget class="h-100 mb-0 " title="视频封面" close>
             <!-- <chart1 style="height: 175px"/> -->
@@ -77,6 +77,13 @@
      <b-row>
         <b-col xs='12' lg='5'>
           <Widget
+              title="<h5>Echarts <span class='fw-semi-bold'>Line Chart</span></h5>"
+              close collapse customHeader
+          >
+            <!-- <echart :options="cd.echarts.line" :init-options="initEchartsOptions" style="height: 400px"></echart> -->
+            <label5/>
+          </Widget>
+          <!-- <Widget
               title="<h5>Highcharts <span class='fw-semi-bold'>Line Chart</span></h5>"
               close collapse customHeader
           >
@@ -106,12 +113,12 @@
                 </div>
               </b-col>
             </b-row>
-          </Widget>
+          </Widget> -->
         </b-col>
         <b-col xs='12' lg='7'>
           <div class="pb-xlg h-100">
             <Widget class="h-100 mb-0" title="弹幕词云" close>
-              <chart10/>
+              <chart10 style="height: 300px"/>
               <!-- <echart :options="cd.echarts.line" :init-options="initEchartsOptions" style="height: 370px"></echart> -->
             </Widget>
           </div>
@@ -149,17 +156,48 @@
               title="<h5>Apex <span class='fw-semi-bold'>Column Chart</span></h5>"
               close collapse customHeader
           >
-            <apexchart type="bar" height="350" :series="cd.apex.column.series" :options="cd.apex.column.options"/>
+            <apexchart type="bar" height="450px" :series="cd.apex.column.series" :options="cd.apex.column.options"/>
           </Widget>
 
         </b-col>
         <b-col xs="12" lg="5">
           <Widget
+              title="<h5>Highcharts <span class='fw-semi-bold'>Line Chart</span></h5>"
+              close collapse customHeader
+          >
+            <highcharts :options="cd.highcharts.mixed"></highcharts>
+            <h5 class="mt">Interactive <span class="fw-semi-bold">Sparklines</span></h5>
+            <b-row class="mt">
+              <b-col md='6' xs='12'>
+                <div class="stats-row">
+                  <div class="stat-item">
+                    <p class="value5 fw-thin">34 567</p>
+                    <h6 class="name text-muted m-0 fs-mini">Overall Values</h6>
+                  </div>
+                  <div class="stat-item stat-item-mini-chart">
+                    <Sparklines :data="sparklineData.series" :options="sparklineData.options1" :width="80" :height="25"></Sparklines>
+                  </div>
+                </div>
+              </b-col>
+              <b-col md='6' xs='12'>
+                <div class="stats-row">
+                  <div class="stat-item">
+                    <p class="value5 fw-thin">34 567</p>
+                    <h6 class="name text-muted m-0 fs-mini">Overall Values</h6>
+                  </div>
+                  <div class="stat-item stat-item-mini-chart">
+                    <Sparklines :data="sparklineData.series" :options="sparklineData.options2" :width="80" :height="25"></Sparklines>
+                  </div>
+                </div>
+              </b-col>
+            </b-row>
+          </Widget>
+          <!-- <Widget
               title="<h5>Echarts <span class='fw-semi-bold'>Line Chart</span></h5>"
               close collapse customHeader
           >
             <echart :options="cd.echarts.line" :init-options="initEchartsOptions" style="height: 370px"></echart>
-          </Widget>
+          </Widget> -->
         </b-col>
       </b-row>>
  
@@ -184,6 +222,7 @@ import label1 from "@/components/label1";
 import label2 from "@/components/label2";
 import label3 from "@/components/label3";
 import label4 from "@/components/label4";
+import label5 from "@/components/label5";
 import Widget from "@/components/Widget/Widget";
 import {chartData, liveChart, liveChartInterval} from './mock';
 
@@ -206,7 +245,7 @@ import Sparklines from '../../components/Sparklines/Sparklines'
 
 export default {
   name: "Charts",
-  components: { Widget, echart: ECharts, highcharts: Chart, Sparklines ,chart1,chart10, label1,label2,label3,label4},
+  components: { Widget, echart: ECharts, highcharts: Chart, Sparklines ,chart1,chart10, label1,label2,label3,label4,label5},
   data() {
     return {
       mock,

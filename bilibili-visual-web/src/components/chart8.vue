@@ -75,7 +75,7 @@ export default {
         {
             showBackground: true,
             itemStyle: {
-                color: 'rgb(154,200,240)'
+                color: 'rgb(103,156,222)'
             },
              emphasis: {
                 itemStyle: {
@@ -98,7 +98,7 @@ export default {
             {
                 top:10,
                 bottom:20,
-                left:"10%",
+                left:"15%",
                 right:"10%",
             }
         ]

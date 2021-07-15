@@ -1,5 +1,5 @@
 <template>
-  <div style="width: 100%; height: 450px">
+  <div style="width: 100%; height: 230px">
     <div id="echartContainer10" style="width: 100%; height: 100%"></div>
   </div>
 </template>
@@ -53,7 +53,7 @@ export default {
             // name: '热点分析',
             type: "wordCloud",
             // size: ['9%', '99%'],
-            sizeRange: [6, 140],
+            sizeRange: [6, 110],
             //textRotation: [0, 45, 90, -45],
             rotationRange: [-45, 90],
             shape: "circle",

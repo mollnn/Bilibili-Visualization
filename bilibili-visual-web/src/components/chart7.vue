@@ -21,8 +21,6 @@ export default {
     },
     toolbox: {
         show: true,
-        x: 200,
-        y: 0,
         feature: {
             dataView: {show: true, readOnly: false},
             magicType: {show: true, type: ['line', 'bar']},
@@ -77,7 +75,7 @@ export default {
         {
             showBackground: true,
             itemStyle: {
-                color: 'rgb(154,200,240)'
+                color: 'rgb(109,150,205)'
             },
              emphasis: {
                 itemStyle: {
@@ -100,7 +98,7 @@ export default {
             {
                 top:10,
                 bottom:20,
-                left:"10%",
+                left:"14%",
                 right:"10%",
             }
         ]

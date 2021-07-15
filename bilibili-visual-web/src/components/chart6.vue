@@ -1,6 +1,6 @@
 <template>
-  <div style="width: 100%; height: 300px">
-    <div id="echartContainer6" style="width: 100%; height: 100%"></div>
+  <div>
+    <div id="echartContainer6" style="width: 100%; height: 300px"></div>
   </div>
 </template>
 
@@ -16,20 +16,24 @@ export default {
         document.getElementById("echartContainer6"),
         "infographic"
       );
-      myChart.setOption(
-{
+      myChart.setOption({
+    color: ['rgb(0,0,139)','rgb(65,0,225)', 'rgb(65,105,225)', 'rgb(30,144,255)', 
+    'rgb(70,130,180)', 'rgb(135,206,250)', 'rgb(135,206,235)','rgb(0,191,255)', 
+    'rgb(173,216,230)', 'rgb(176,224,230)'],
     tooltip: {
-        trigger: 'item'
-    },
-    legend: {
-        top: '5%',
-        left: 'center'
+        trigger: 'item',
+        formatter: "{a} <br/>{b}: {c} ({d}%)",
+        position:function(p){ //其中p为当前鼠标的位置
+        return [p[0] + 10, p[1] - 10]},
+        //extraCssText:'width:40px;height:20px;',
+        //fontSize: '5px'
     },
     series: [
         {
             name: '访问来源',
             type: 'pie',
             radius: ['40%', '70%'],
+            center: ['50%', '40%'],
             avoidLabelOverlap: false,
             itemStyle: {
                 borderRadius: 10,
@@ -38,12 +42,13 @@ export default {
             },
             label: {
                 show: false,
-                position: 'center'
+                position: 'center',
+                
             },
             emphasis: {
                 label: {
                     show: true,
-                    fontSize: '40',
+                    fontSize: '20',
                     fontWeight: 'bold'
                 }
             },
@@ -51,29 +56,11 @@ export default {
                 show: false
             },
             data: [
-                {value: 1048, name: '搜索引擎'},
-                {value: 735, name: '直接访问'},
-                {value: 580, name: '邮件营销'},
-                {value: 484, name: '联盟广告'},
-                {value: 300, name: '视频广告'}
             ]
         }
     ]
-}
-      );
-      //   myChart.setOption({
-      //     xAxis: {},
-      //     yAxis: {},
-      //     series: [
-      //       {
-      //         symbolSize: 5,
-      //         data: [],
-      //         type: "scatter",
-      //       },
-      //     ],
-      //   });
-      this.$http
-        .get("http://131.mollnn.com:5000/api/view/distrib/100000/", {
+});
+this.$http.get("http://131.mollnn.com:5000/api/type/distrib10/", {
           headers: { "Access-Control-Allow-Origin": "*" },
         })
         .then((res) => {

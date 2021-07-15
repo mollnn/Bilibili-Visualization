@@ -22,7 +22,7 @@ def api_getrc(name):
 
 @app.route('/api/sum/')
 def api_sum():
-    return jsonify(msql.query("bilibili", "SELECT count(*) as scnt, cast(sum(view) as signed) as sview, cast(sum(danmaku) as signed) as sdanmaku,cast (sum(coin) as signed) as scoin, cast(sum(likes) as signed) as slikes FROM Vinfo;", isDict=True))
+    return jsonify(msql.query("bilibili", "SELECT count(*) as scnt, cast(sum(view) as signed) as sview, cast(sum(danmaku) as signed) as sdanmaku,cast(sum(coin) as signed) as scoin, cast(sum(likes) as signed) as slikes FROM Vinfo;", isDict=True))
 
 
 @app.route('/api/view/range/')

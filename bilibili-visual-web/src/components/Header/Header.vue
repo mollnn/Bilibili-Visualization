@@ -35,13 +35,13 @@
                   class="fi flaticon-search-2"
                   type="button"
                   @click="sendMsg"
-                /></b-input-group-text
-              >
+              /></b-input-group-text>
             </template>
             <b-form-input
               v-model="BidinputMsg"
               id="search-input"
               placeholder="Search from here!"
+              @keydown.native.enter="sendMsg"
             />
           </b-input-group>
         </b-form-group>
@@ -95,7 +95,7 @@ export default {
   data() {
     return {
       // Bidinputmsg: this.input,
-      BidinputMsg: '',
+      BidinputMsg: "",
     };
   },
   components: { Notifications },
@@ -103,12 +103,18 @@ export default {
     ...mapState("layout", ["sidebarClose", "sidebarStatic"]),
   },
   methods: {
+    // onSubmit: function (ev) {
+    //   if (ev.keyCode == 13) {
+    //     this.sendMsg();
+    //   }
+    //   alert(ev);
+    // },
+
     searchmethod: function () {
       console.log(this.Bidinputmsg);
     },
     sendMsg: function () {
       // 定义sendMsg方法，并将msg通过chaange传给label组件
-      // alert("??");
       // alert(this.Bidinputmsg);
       Bus.$emit("change", this.BidinputMsg);
     },

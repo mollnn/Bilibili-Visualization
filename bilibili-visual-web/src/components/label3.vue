@@ -1,6 +1,6 @@
 <template>
-  <div id="xxx6">
-    
+  <div>
+    <img id="xxx6" src = "javacrip:;" height = 180px>
   </div>
 </template>
 
@@ -25,7 +25,7 @@ export default {
           headers: { "Access-Control-Allow-Origin": "*" },
         })
         .then((res) => {
-          elem1.innerHTML+= "<img src=\""+res.data[0].pic+"\"/>";
+            elem1.setAttribute("src","http://131.mollnn.com:5000/getrc/"+res.data[0].pic);
         });
     },
   },
