@@ -3,6 +3,7 @@ from flask.helpers import make_response
 import connectorSSHMySQL as msql
 from flask_cors import CORS
 import jieba
+import myhtml
 
 app = Flask(__name__)
 
@@ -14,6 +15,10 @@ CORS(app, resources=r'/*')
 @app.route('/')
 def api_index():
     return render_template("index.html")
+
+@app.route('/getrc/<path:name>/')
+def api_getrc(name):
+    return myhtml.getRequestsContent(name)
 
 @app.route('/api/demo/')
 def api_demo():

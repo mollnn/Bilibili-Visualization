@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <img id="xxx6" src = "javacrip:;">fuck>
+  <div id="xxx6">
+    
   </div>
 </template>
 
@@ -25,8 +25,7 @@ export default {
           headers: { "Access-Control-Allow-Origin": "*" },
         })
         .then((res) => {
-            elem1.setAttribute("src",res.data[0].pic);
-        //   elem1.src = res.data[0].pic;
+          elem1.innerHTML+= "<img src=\""+res.data[0].pic+"\"/>";
         });
     },
   },
