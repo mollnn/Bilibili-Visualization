@@ -7,7 +7,6 @@ import jieba
 app = Flask(__name__)
 
 app.config['JSON_AS_ASCII'] = False
-# 指定浏览器渲染的文件类型，和解码格式；
 app.config['JSONIFY_MIMETYPE'] = "application/json;charset=utf-8"
 
 CORS(app, resources=r'/*')
@@ -117,7 +116,7 @@ def api_v_danmu_wordcount(bid, cnt):
     wf = wordFreqCount(str)
     ans = []
     for i in wf:
-        ans += [i]
+        ans += [{"name":i[0], "value":i[1]}]
         cnt -= 1
         if cnt == 0:
             break
