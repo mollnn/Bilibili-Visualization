@@ -7,6 +7,7 @@ def SSHMysql(DB, SQL, isDict=False):
     flag=0
     data=[]
     for i in range(100):
+        print("try")
         try:
             server = SSHTunnelForwarder(
                 ssh_address_or_host=('131.mollnn.com', 22),  # 指定ssh登录的跳转机的address

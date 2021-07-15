@@ -92,12 +92,9 @@ def api_type_distrib_10():
 def api_vinfo(bv):
     return jsonify(msql.query("bilibili", """select * from Vinfo where bvid = "{bv}";""".format(bv=bv), isDict=True))
 
-
-@app.route('/api/v/danmu/freq/<cid>/')
-def api_v_danmu_freq(cid):
-    return jsonify(msql.query("bilibili", """select floor(floattime) as t, count(*) as cnt from Danmu where cid="{cid}" group by floor(floattime) order by t;""".format(cid=cid)))
-
-
+@app.route('/api/v/danmu/freq/<bid>/')
+def api_v_danmu_freq(bid):
+    return jsonify(msql.query("bilibili", """select floor(floattime) as t, count(*) as cnt from Danmu where cid in (select cid from Vinfo where bvid = "{bid}" ) group by floor(floattime) order by t;""".format(bid=bid)))
 
 
 def wordFreqCount(txt):
@@ -113,10 +110,10 @@ def wordFreqCount(txt):
     return items
 
 
-@app.route('/api/v/danmu/wordcount/<cid>/<int:cnt>/')
-def api_v_danmu_wordcount(cid, cnt):
+@app.route('/api/v/danmu/wordcount/<bid>/<int:cnt>/')
+def api_v_danmu_wordcount(bid, cnt):
     sqlres = msql.query(
-        "bilibili", """select text from Danmu where cid={cid}""".format(cid=cid))
+        "bilibili", """select text from Danmu where cid in (select cid from Vinfo where bvid = "{bid}")""".format(bid=bid))
     lst = []
     for i in sqlres:
         lst += [i[0]]
