@@ -20,9 +20,9 @@ def api_index():
 def api_getrc(name):
     return myhtml.getRequestsContent(name)
 
-@app.route('/api/demo/')
-def api_demo():
-    return jsonify(msql.query("bilibili", "select view, danmaku from Vinfo;"))
+@app.route('/api/sum/')
+def api_sum():
+    return jsonify(msql.query("bilibili", "SELECT count(*) as scnt, sum(view) as sview, sum(danmaku) as sdanmaku, sum(coin) as scoin, sum(likes) as slikes FROM Vinfo;", isDict=True))
 
 
 @app.route('/api/view/range/')
