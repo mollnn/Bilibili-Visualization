@@ -1,0 +1,1 @@
+执行 databot.sh，将所有数据从临时 MySQL.bilibili 导入 Hive.himp，并插入 Hive.hmain，进行 MR 计算出结果表并存储在 Hive.hmain 中，最后导出到 MySQL.biliview，供 API 使用。
