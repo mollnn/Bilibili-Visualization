@@ -20,6 +20,7 @@ def api_index():
 
 @app.route('/getrc/<path:name>/')
 def api_getrc(name):
+    print(name)
     return myhtml.getRequestsContent(name)
 
 
