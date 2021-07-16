@@ -5,8 +5,9 @@
 </template>
 
 <script>
+import echarts from "echarts"
 export default {
-  name: "chart2",
+  name: "chart7",
   data() {
     return {};
   },
@@ -26,28 +27,32 @@ export default {
             magicType: {show: true, type: ['line', 'bar']},
             restore: {show: true},
             saveAsImage: {show: true}
-        }
+        },
     },
     calculable: true,
     xAxis: [
-        {
+    {
             type: 'value',
-            show: false,
             max: 10000,
-            axisLabel: {
-            inside: true,
-            textStyle: {
-                color: '#fff'
-            }
+            splitLine: {show: false},
+            axisLine: {
+            show: false
         },
+        
         axisTick: {
             show: false
         },
-        axisLine: {
-            show: false
-        },
-        z: 10
+        axisLabel: {
+            textStyle: {
+                fontSize: 8,    
+                color: '#999'
+            },
+            rotate: -20,
+
+            z: 10,
         }
+        }
+        
     ],
     yAxis: [
         {
@@ -61,6 +66,7 @@ export default {
         },
         axisLabel: {
             textStyle: {
+                fontSize: 8,
                 color: '#999'
             }
         }
@@ -74,17 +80,30 @@ export default {
     series: [
         {
             showBackground: true,
+
+            
+            
+
             itemStyle: {
-                color: 'rgb(109,150,205)'
+                color: new echarts.graphic.LinearGradient(
+                    0, 0, 0, 1,
+                    [
+                        {offset: 0, color: 'rgb(255, 70, 131)'},
+                        {offset: 0.5, color: 'rgb(255, 158, 68)'},
+                        {offset: 1, color: 'rgb(255, 158, 68)'}
+                    ]
+                )
             },
-             emphasis: {
-                itemStyle: {
-                    color: this.$echarts.graphic.LinearGradient(
+             emphasis: 
+             {
+                itemStyle: 
+                {
+                    color: new echarts.graphic.LinearGradient(
                         0, 0, 0, 1,
                         [
-                            {offset: 0, color: '#2378f7'},
-                            {offset: 0.7, color: '#2378f7'},
-                            {offset: 1, color: '#83bff6'}
+                            {offset: 0, color: '#F55555'},
+                            {offset: 0.7, color: '#F55555'},
+                            {offset: 1, color: '#F55555'}
                         ]
                     )
                 }
@@ -97,22 +116,13 @@ export default {
     grid: [
             {
                 top:10,
-                bottom:20,
+                bottom:22,
                 left:"14%",
-                right:"10%",
+                right:"11%",
             }
         ]
 });
     // Enable data zoom when user click bar.
-var zoomSize = 6;
-myChart.on('click', function (params) {
-    console.log(dataAxis[Math.max(params.dataIndex - zoomSize / 2, 0)]);
-    myChart.dispatchAction({
-        type: 'dataZoom',
-        startValue: dataAxis[Math.max(params.dataIndex - zoomSize / 2, 0)],
-        endValue: dataAxis[Math.min(params.dataIndex + zoomSize / 2, data.length - 1)]
-    });
-});
       this.$http
         .get("http://131.mollnn.com:5000/api/favorite/distrib/500/", {
           headers: { "Access-Control-Allow-Origin": "*" },

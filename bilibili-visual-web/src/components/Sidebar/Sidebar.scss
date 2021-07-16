@@ -6,12 +6,13 @@
   width: $sidebar-width-open;
   background-color: var(--sidebar-bg-color);
   //旁条的背景色在这里改
-  // background-color:#ff7e67;
+  background-color:#C7436F;
   color: var(--sidebar-color);
   transition: $transition-base;
 }
 
 .sidebar-wrapper {
+  color: #fff;
   position: fixed;
   left: 0;
   top: 0;
@@ -38,33 +39,37 @@
 }
 
 .logo {
-  margin: 15px 0;
+  //V2V位置
+  margin: 15px 10px;
   font-size: 18px;
   width: 100%;
   font-weight: $font-weight-normal;
   text-align: center;
   transition: width $sidebar-transition-time ease-in-out;
-  text-shadow: 4px 4px 15px rgba(92, 176, 255, 0.6);
+  text-shadow: 4px 4px 15px RGB(255,235,237);
   text-transform: uppercase;
 
   a {
-    color: var(--logo-color);
-    padding: 0 9px;
+    color: RGB(255,235,237);
+    //padding: 0 9px;
     text-decoration: none;
-    white-space: nowrap;
+    //white-space: nowrap;
+    font-weight: $font-weight-normal;
   }
   .secondary-word {
     opacity: 1;
     transition: all $sidebar-transition-time;
   }
   .primary-word {
-    color: var(--logo-color);
+    color: RGB(255,235,237);
     font-weight: $font-weight-normal;
+    
   }
 }
 
 
 .sidebarClose .logo {
+  color: RGB(255,235,237);
   width: $sidebar-width-closed;
   .secondary-word {
     opacity: 0;
@@ -72,6 +77,7 @@
 }
 
 .sidebarStatic .logo {
+  color: RGB(255,235,237);
   width: 100%;
   transition: none;
   .secondary-word {
@@ -87,13 +93,15 @@
 }
 
 .navTitle {
+  //圆圈位置
   margin: 35px 0 24px 22px;
   font-size: $font-size-mini;
   font-weight: $font-weight-bold;
   transition: opacity $sidebar-transition-time ease-in-out;
-  color: rgba(#5287B9, 0.6);
+  color: RGB(255,205,216);
 
   &.first {
+    //小图标位置
     margin-top: 46px;
   }
 
@@ -105,16 +113,18 @@
 
 .sidebarClose .navTitle {
   opacity: 0;
+  color: #fff;
 }
 
 
 .sidebarStatic .navTitle {
   opacity: 1;
+  columns: #fff;
   transition: none;
 }
 
 .actionLink {
-  color: #aaa;
+  color: #fff;
   float: right;
   margin-right: 22px;
   margin-top: -1px;
@@ -134,35 +144,37 @@
 
 .sidebarClose .labelName {
   opacity: 0;
+  color: #fff;
 }
 
 .sidebarStatic .labelName {
   transition: none;
+  color: #fff;
   opacity: 1;
 }
 
 .glyphiconSm {
+  color: #fff;
   font-size: 9px;
 }
 
 .sidebarLabels {
   list-style-type: none;
   padding: 11px 15px 11px 24px;
-
   > li + li {
     margin-top: 10px;
   }
 
   li > a {
     font-size: $font-size-mini;
-    color: var(--sidebar-color);
+    color: RGB(255,235,237);
     text-decoration: none;
 
     > i {
       font-size: 11px;
       margin-right: 20px;
       vertical-align: 1px;
-      color: var(--sidebar-item-active);
+      color: RGB(255,235,237);
       transition: margin-left $sidebar-transition-time ease-in-out;
     }
   }
@@ -172,6 +184,7 @@
 }
 
 .sidebarStatic {
+  color: #fff;
   .sidebarLabels {
     list-style-type: none;
   }
@@ -185,22 +198,25 @@
   margin-bottom: $spacer * 2;
   transition: opacity $sidebar-transition-time ease-in-out;
   opacity: 1;
-  color: $widget-bg;
+  color: #fff;
   font-size: 13px;
   font-weight: 400;
 }
 
 .sidebarClose .sidebarAlerts {
+  color: #fff;
   opacity: 0;
 }
 
 .sidebarStatic .sidebarAlerts {
   opacity: 1;
+  color: #fff;
   transition: none;
 }
 
 .alert.sidebarAlert {
   background: transparent;
+  color: #fff;
   margin-bottom: 0;
   padding-right: 22px;
   padding-left: 22px;
@@ -208,8 +224,10 @@
 
 .sidebarProgress {
   background: var(--sidebar-progress-bg-color);
+  color: #fff;
 }
 
 .groupTitle {
   margin-bottom: 15px;
+  color: #fff;
 }

@@ -56,9 +56,6 @@ export default {
 
             animationType: 'scale',
             animationEasing: 'elasticOut',
-            animationDelay: function (idx) {
-                return Math.random() * 200;
-            }
         }
     ]
 });

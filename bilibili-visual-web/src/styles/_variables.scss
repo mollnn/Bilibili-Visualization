@@ -107,7 +107,8 @@ $sidebar-width-closed: 64px;
 $sidebar-transition-time: 0.3s !default;
 
 $sidebar-item-border-color: transparent !default;
-$sidebar-scrollbar-bg: $gray-200;
+// $sidebar-scrollbar-bg: $gray-200;
+$sidebar-scrollbar-bg: transparent;
 
 $breadcrumb-divider: '>';
 $breadcrumb-padding-y: 0;

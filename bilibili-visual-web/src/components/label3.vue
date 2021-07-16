@@ -15,7 +15,7 @@ export default {
   methods: {
     ttt(){
       var elem1 = document.getElementById("xxx6");
-      elem1.textContent = tempuse;
+      elem1.textContent = "...";
       this.draw();
     },
     draw() {

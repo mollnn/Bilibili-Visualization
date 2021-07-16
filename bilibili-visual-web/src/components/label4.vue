@@ -15,15 +15,15 @@
         </tr>
       </thead>
       <tbody>
-        <td id = "xxx8"></td>
-        <td id = "xxx9"></td>
-        <td id = "xxx10"></td>
-        <td id = "xxx11"></td>
-        <td id = "xxx12"></td>
-        <td id = "xxx13"></td>
-        <td id = "xxx14"></td>
-        <td id = "xxx15"></td>
-        <td id = "xxx16"></td>
+        <td id="xxx8"></td>
+        <td id="xxx9"></td>
+        <td id="xxx10"></td>
+        <td id="xxx11"></td>
+        <td id="xxx12"></td>
+        <td id="xxx13"></td>
+        <td id="xxx14"></td>
+        <td id="xxx15"></td>
+        <td id="xxx16"></td>
       </tbody>
     </table>
   </div>
@@ -31,16 +31,32 @@
 
 <script>
 var tempuse = "BV1144y1q7ve";
-import Bus from '.././bus.js';
+import Bus from ".././bus.js";
 export default {
   name: "label4",
   data() {
     return {};
   },
   methods: {
-    ttt(){
+    ttt() {
       var elem1 = document.getElementById("xxx8");
-      elem1.textContent = tempuse;
+      var elem2 = document.getElementById("xxx9");
+      var elem3 = document.getElementById("xxx10");
+      var elem4 = document.getElementById("xxx11");
+      var elem5 = document.getElementById("xxx12");
+      var elem6 = document.getElementById("xxx13");
+      var elem7 = document.getElementById("xxx14");
+      var elem8 = document.getElementById("xxx15");
+      var elem9 = document.getElementById("xxx16");
+      elem1.textContent = "...";
+      elem2.textContent = "...";
+      elem3.textContent = "...";
+      elem4.textContent = "...";
+      elem5.textContent = "...";
+      elem6.textContent = "...";
+      elem7.textContent = "...";
+      elem8.textContent = "...";
+      elem9.textContent = "...";
       this.draw();
     },
     draw() {
@@ -60,7 +76,9 @@ export default {
         .then((res) => {
           elem1.textContent = res.data[0].bvid;
           elem2.textContent = res.data[0].aid;
-          elem3.textContent = res.data[0].iscopy;
+          if(res.data[0].iscopy)
+          elem3.textContent = "是";
+          else elem3.textContent = "否";
           elem4.textContent = res.data[0].tname;
           elem5.textContent = res.data[0].view;
           elem6.textContent = res.data[0].coin;
@@ -71,11 +89,11 @@ export default {
     },
   },
   mounted() {
-    Bus.$on('change',(val)=>{
-        tempuse = val;
-        this.ttt();
-        // alert(tempuse);
-      });
+    Bus.$on("change", (val) => {
+      tempuse = val;
+      this.ttt();
+      // alert(tempuse);
+    });
     this.draw();
   },
 };

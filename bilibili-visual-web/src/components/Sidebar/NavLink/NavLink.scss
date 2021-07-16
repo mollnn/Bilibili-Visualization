@@ -1,6 +1,7 @@
 @import '../../../styles/app';
 
-.headerLink {
+.headerLink 
+{
   width: 100%;
   overflow-x: hidden;
 
@@ -11,17 +12,20 @@
 
   a {
     display: block;
-    color: var(--sidebar-color-item);
+    color: RGB(255,235,237);
     text-decoration: none;
     cursor: pointer;
   }
 
-  &:last-child > a {
+  &:last-child > a 
+  {
     border-bottom: 1px solid $sidebar-item-border-color;
   }
 
   > a,
-  > div a {
+  > div a 
+  {
+
     align-items: center;
     position: relative;
     padding-left: 64px;
@@ -32,7 +36,9 @@
 
 
     &:hover {
-      background-color: var(--sidebar-item-hover-bg-color);
+      //color: RGB(255,235,237);
+      //选中时的颜色
+      background-color: #CF5B81;
     }
 
     > i {
@@ -40,7 +46,8 @@
     }
   }
 
-  .icon {
+  .icon 
+  {
     font-size: $font-size-larger;
     display: flex;
     justify-content: center;
@@ -54,12 +61,14 @@
     text-align: center;
 
     @media (min-width: map_get($grid-breakpoints, lg))
-    and (min-height: $screen-lg-height), (max-width: map_get($grid-breakpoints, md) - 1px) {
+    and (min-height: $screen-lg-height), (max-width: map_get($grid-breakpoints, md) - 1px) 
+    {
       top: 12px;
     }
   }
 
-  .badge {
+  .badge 
+  {
     float: right;
     line-height: 8px;
     margin-top: 6px;
@@ -72,12 +81,14 @@
     }
   }
 
-  .collapse > ul > li a {
+  .collapse > ul > li a 
+  {
     padding-left: 50px;
   }
 }
 
-.headerLabel {
+.headerLabel 
+{
   font-weight: 600;
 }
 
@@ -86,9 +97,10 @@
   align-items: center;
   margin-left: auto;
   margin-right: 22px;
-  color: #5CB0FF;
+  color: RGB(255,235,237);
 
-  i {
+  i 
+  {
     @include transition(transform 0.3s ease-in-out);
   }
 }
@@ -99,32 +111,36 @@
   transform: rotate(90deg);
 }
 
-a.router-link-active {
-  color: var(--sidebar-item-active);
+a.router-link-active 
+{
+  color: RGB(255,235,237);
   font-size: $font-size-larger;
   font-weight: $font-weight-semi-bold;
-
+  
   .icon {
     border-radius: 50%;
-    background-color: var(--sidebar-item-active-bg);
-
+    background-color: RGB(255,235,237);
+    
     i {
-      color: var(--sidebar-icon-active);
+      color: RGB(255,235,237);
     }
   }
 }
 
 .collapse,
-.collapsing {
+.collapsing 
+{
   border: none;
   box-shadow: none;
   margin: 0;
   border-radius: 0;
 
-  a {
+  a 
+  {
     line-height: 20px !important;
-
-    &.router-link-active {
+    
+    &.router-link-active 
+    {
       font-weight: $font-weight-semi-bold;
       color: var(--sidebar-color);
     }
@@ -143,7 +159,8 @@ a.router-link-active {
       font-size: $font-size-mini;
 
       &:hover {
-        background-color: var(--sidebar-item-hover-bg-color);
+        color: RGB(255,235,237) !important;
+        background-color: RGB(255,235,237)!important;
       }
     }
   }

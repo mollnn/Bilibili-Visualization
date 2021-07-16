@@ -58,11 +58,13 @@
   &::-webkit-scrollbar {
     height: 8px;
     width: 4px;
-    background: var(--sidebar-bg-color);
+    // background: var(--sidebar-bg-color);
+    background: #C7436F;
   }
 
   &::-webkit-scrollbar-track {
-    background: var(--sidebar-bg-color);
+    // background: var(--sidebar-bg-color);
+    background: transparent;
   }
 
   &::-webkit-scrollbar-thumb {
@@ -71,6 +73,7 @@
   }
 
   &:hover::-webkit-scrollbar-thumb {
-    background-color: var(--sidebar-color);
+    // background-color: var(--sidebar-color);
+    background-color: transparent;
   }
 }

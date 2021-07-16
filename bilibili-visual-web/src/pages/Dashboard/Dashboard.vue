@@ -180,7 +180,7 @@
     <!-- <b-row>
       <b-col xs="12">
         <Widget
-          title="<h5>二级分区 <span class='fw-semi-bold'>饼图</span></h5>"
+          title="<h5>类型分布<span class='fw-semi-bold'>饼图</span></h5>"
           bodyClass="widget-table-overflow"
           customHeader
         >
@@ -246,7 +246,7 @@
       </b-col>
       <b-col md="6" xl="6" sm="6" xs="12">
         <div class="pb-xlg h-100">
-          <Widget class="h-100 mb-0" title="二级分区" close>
+          <Widget class="h-100 mb-0" title="类型分布" close>
             <!-- <echart :options="cd.echarts.option01" :init-options="initEchartsOptions" style="height: 175px"></echart> -->
             <chart6 style="height: 250px"></chart6>
           </Widget>

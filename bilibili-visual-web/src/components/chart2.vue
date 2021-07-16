@@ -5,6 +5,7 @@
 </template>
 
 <script>
+import echarts from "echarts"
 export default {
   name: "chart2",
   data() {
@@ -36,16 +37,26 @@ export default {
         max:3500000,
         boundaryGap: false,
         axisLabel: {
-            inside: true,
-            textStyle: {
-                color: '#fff'
-            }
-        },
-        show:false,
-        axisTick: {
+            type: 'value',
+            max: 10000,
+            splitLine: {show: false},
+            axisLine: {
             show: false
         },
-        axisLine: {
+        textStyle: {
+                //fontSize: 8,    
+                color: '#999'
+            },
+
+            z: 10,
+        
+        },
+        splitLine: {show: false},
+            axisLine: {
+            show: false
+        },
+        //show:false,
+        axisTick: {
             show: false
         },
 
@@ -76,16 +87,19 @@ export default {
             type: 'line',
             symbol: 'none',
             sampling: 'lttb',
+
+
+
             itemStyle: {
-                color: 'rgb(154,200,240)'
+                color: 'rgb(255, 158, 68)'
             },
             areaStyle: {
-                color: this.$echarts.graphic.LinearGradient(0, 0, 0, 1, [{
-                    offset: 0,
-                    color: 'rgb(255, 158, 68)'
-                }, {
+                color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
                     offset: 1,
                     color: 'rgb(255, 70, 131)'
+                }, {
+                    offset: 0,
+                    color: 'rgb(255, 158, 68)'
                 }])
             },
             data: []
@@ -94,7 +108,7 @@ export default {
     grid: [
             {
                 top:20,
-                bottom:20,
+                bottom:25,
                 left:"10%",
                 right:"10%",
             }
@@ -102,15 +116,7 @@ export default {
 });
 
 // Enable data zoom when user click bar.
-var zoomSize = 6;
-myChart.on('click', function (params) {
-    console.log(dataAxis[Math.max(params.dataIndex - zoomSize / 2, 0)]);
-    myChart.dispatchAction({
-        type: 'dataZoom',
-        startValue: dataAxis[Math.max(params.dataIndex - zoomSize / 2, 0)],
-        endValue: dataAxis[Math.min(params.dataIndex + zoomSize / 2, data.length - 1)]
-    });
-});
+
       this.$http
         .get("http://131.mollnn.com:5000/api/view/distrib/100000/", {
           headers: { "Access-Control-Allow-Origin": "*" },

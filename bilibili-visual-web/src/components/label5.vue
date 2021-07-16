@@ -9,12 +9,12 @@ var tempuse = "BV1144y1q7ve";
 import Bus from ".././bus.js";
 import config from './../config';
 
-const colors = config.app.colors;
-const {primary, warning, success} = colors;
+//const colors = config.app.colors;
+//const {primary, warning, success} = colors;
 const chartColors = config.app.chartColors;
 const {axisColor} = chartColors;
 
-let lineColors = [primary, success, warning];
+let lineColors = ['rgb(255, 70, 131)', 'rgb(255, 70, 131)', 'rgb(255, 70, 131)'];
 export default {
   name: "label5",
   data() {
@@ -53,7 +53,7 @@ export default {
           axisLine: {
             onZero: false,
             lineStyle: {
-              color: lineColors[0]
+              color: axisColor
             }
           },
           axisPointer: {
@@ -73,7 +73,7 @@ export default {
           axisLine: {
             onZero: false,
             lineStyle: {
-              color: lineColors[0]
+              color: axisColor
             }
           },
         }

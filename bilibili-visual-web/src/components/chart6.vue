@@ -17,45 +17,66 @@ export default {
         "infographic"
       );
       myChart.setOption({
-    color: ['rgb(0,0,139)','rgb(65,0,225)', 'rgb(65,105,225)', 'rgb(30,144,255)', 
-    'rgb(70,130,180)', 'rgb(135,206,250)', 'rgb(135,206,235)','rgb(0,191,255)', 
-    'rgb(173,216,230)', 'rgb(176,224,230)'],
+      toolbox: {
+        feature: {
+            restore: {},
+            saveAsImage: {}
+        }
+
+    },
+            animationType: 'scale',
+            animationEasing: 'elasticOut',
     tooltip: {
         trigger: 'item',
-        formatter: "{a} <br/>{b}: {c} ({d}%)",
+        formatter:"{a} <br/>{b}: {c} ({d}%)",
         position:function(p){ //其中p为当前鼠标的位置
         return [p[0] + 10, p[1] - 10]},
-        //extraCssText:'width:40px;height:20px;',
-        //fontSize: '5px'
+    },
+    legend: {
+        orient: 'vertical',
+        x: '80%',
+        itemWidth: 15,
+        itemHeight: 15,
+        itemGap: 7,
+        
+    },
+     visualMap: {
+        show: false,
+        min: 80,
+        max: 500,
+        inRange: {
+            colorLightness: [0.7, 0.8]
+        }
     },
     series: [
         {
-            name: '访问来源',
+            name: '分类类别',
             type: 'pie',
-            radius: ['40%', '70%'],
+            radius: ['50','70%'],
             center: ['50%', '40%'],
             avoidLabelOverlap: false,
             itemStyle: {
-                borderRadius: 10,
-                borderColor: '#fff',
-                borderWidth: 2
+                color: '#F55555',
+                shadowBlur: 20,
+                shadowColor: 'rgba(0, 0, 0, 0.5)'
             },
             label: {
                 show: false,
                 position: 'center',
-                
             },
             emphasis: {
                 label: {
                     show: true,
                     fontSize: '20',
+                    fontWeight: 'bold'
                 }
             },
             labelLine: {
                 show: false
             },
             data: [
-            ]
+            ],
+            
         }
     ]
 });

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h2 id="xxx5" class="text-muted mb-0 mr" style = "font-size : 13px"><small>fuck</small></h2>
+    <h2 id="xxx5" class="text-muted mb-0 mr" style = "font-size : 13px"><small>...</small></h2>
   </div>
 </template>
 
@@ -14,8 +14,8 @@ export default {
   },
   methods: {
     ttt(){
-      // var elem1 = document.getElementById("xxx5");
-      // elem1.textContent = tempuse;
+      var elem1 = document.getElementById("xxx5");
+      elem1.textContent = "...";
       this.draw();
     },
     draw() {
