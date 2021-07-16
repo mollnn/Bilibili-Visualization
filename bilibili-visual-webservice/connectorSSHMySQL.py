@@ -6,7 +6,7 @@ import time
 def SSHMysql(DB, SQL, isDict=False):
     flag=0
     data=[]
-    for i in range(100):
+    for i in range(20):
         print("try")
         try:
             server = SSHTunnelForwarder(
