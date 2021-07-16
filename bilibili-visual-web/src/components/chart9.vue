@@ -120,7 +120,7 @@ export default {
     // Enable data zoom when user click bar.
 
       this.$http
-        .get("http://131.mollnn.com:5000/api/coin/distrib/1000/", {
+        .get("http://131.mollnn.com:5000/api/coin/distrib/", {
           headers: { "Access-Control-Allow-Origin": "*" },
         })
         .then((res) => {

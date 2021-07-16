@@ -71,7 +71,7 @@ def api_vinfo(bv):
 
 @app.route('/api/v/danmu/distrib/<bid>/')
 def api_v_danmu_freq(bid):
-    return jsonify(msql.query("biliview", """select t as name, cnt as value from odmdistrib where bvid = "{bid}";""".format(bid=bid), isDict=True))
+    return jsonify(msql.query("biliview", """select t as name, cnt as value from odmdistrib where bvid = "{bid}";""".format(bid=bid)))
 
 
 @app.route('/api/v/danmu/wordcount/<bid>/')

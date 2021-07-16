@@ -91,14 +91,9 @@ export default {
         ],
       });
       this.$http
-        .get(
-          "http://131.mollnn.com:5000/api/v/danmu/wordcount/" +
-            tempuse +
-            "/100/",
-          {
-            headers: { "Access-Control-Allow-Origin": "*" },
-          }
-        )
+        .get("http://131.mollnn.com:5000/api/v/danmu/wordcount/" + tempuse + "/", {
+          headers: { "Access-Control-Allow-Origin": "*" },
+        })
         .then((res) => {
           myChart.hideLoading();
           myChart.setOption({ series: [{ data: res.data }] });

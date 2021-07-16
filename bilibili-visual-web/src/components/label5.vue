@@ -103,7 +103,7 @@ export default {
     });
           this.$http
         .get(
-          "http://131.mollnn.com:5000/api/v/danmu/freq/"+tempuse + "/",
+          "http://131.mollnn.com:5000/api/v/danmu/distrib/"+tempuse + "/",
           {
             headers: { "Access-Control-Allow-Origin": "*" },
           }
