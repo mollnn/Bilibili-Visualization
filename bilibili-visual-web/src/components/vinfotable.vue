@@ -15,15 +15,15 @@
         </tr>
       </thead>
       <tbody>
-        <td id="xxx8"></td>
-        <td id="xxx9"></td>
-        <td id="xxx10"></td>
-        <td id="xxx11"></td>
-        <td id="xxx12"></td>
-        <td id="xxx13"></td>
-        <td id="xxx14"></td>
-        <td id="xxx15"></td>
-        <td id="xxx16"></td>
+        <td id="bvid"></td>
+        <td id="aid"></td>
+        <td id="iscopy"></td>
+        <td id="tname"></td>
+        <td id="view"></td>
+        <td id="coin"></td>
+        <td id="reply"></td>
+        <td id="likes"></td>
+        <td id="favorite"></td>
       </tbody>
     </table>
   </div>
@@ -33,21 +33,21 @@
 var tempuse = "BV1144y1q7ve";
 import Bus from ".././bus.js";
 export default {
-  name: "label4",
+  name: "vinfotable",
   data() {
     return {};
   },
   methods: {
     ttt() {
-      var elem1 = document.getElementById("xxx8");
-      var elem2 = document.getElementById("xxx9");
-      var elem3 = document.getElementById("xxx10");
-      var elem4 = document.getElementById("xxx11");
-      var elem5 = document.getElementById("xxx12");
-      var elem6 = document.getElementById("xxx13");
-      var elem7 = document.getElementById("xxx14");
-      var elem8 = document.getElementById("xxx15");
-      var elem9 = document.getElementById("xxx16");
+      var elem1 = document.getElementById("bvid");
+      var elem2 = document.getElementById("aid");
+      var elem3 = document.getElementById("iscopy");
+      var elem4 = document.getElementById("tname");
+      var elem5 = document.getElementById("view");
+      var elem6 = document.getElementById("coin");
+      var elem7 = document.getElementById("reply");
+      var elem8 = document.getElementById("likes");
+      var elem9 = document.getElementById("favorite");
       elem1.textContent = "...";
       elem2.textContent = "...";
       elem3.textContent = "...";
@@ -60,15 +60,15 @@ export default {
       this.draw();
     },
     draw() {
-      var elem1 = document.getElementById("xxx8");
-      var elem2 = document.getElementById("xxx9");
-      var elem3 = document.getElementById("xxx10");
-      var elem4 = document.getElementById("xxx11");
-      var elem5 = document.getElementById("xxx12");
-      var elem6 = document.getElementById("xxx13");
-      var elem7 = document.getElementById("xxx14");
-      var elem8 = document.getElementById("xxx15");
-      var elem9 = document.getElementById("xxx16");
+      var elem1 = document.getElementById("bvid");
+      var elem2 = document.getElementById("aid");
+      var elem3 = document.getElementById("iscopy");
+      var elem4 = document.getElementById("tname");
+      var elem5 = document.getElementById("view");
+      var elem6 = document.getElementById("coin");
+      var elem7 = document.getElementById("reply");
+      var elem8 = document.getElementById("likes");
+      var elem9 = document.getElementById("favorite");
       this.$http
         .get("http://131.mollnn.com:5000/api/v/info/" + tempuse + "/", {
           headers: { "Access-Control-Allow-Origin": "*" },
@@ -76,8 +76,7 @@ export default {
         .then((res) => {
           elem1.textContent = res.data[0].bvid;
           elem2.textContent = res.data[0].aid;
-          if(res.data[0].iscopy)
-          elem3.textContent = "是";
+          if (res.data[0].iscopy) elem3.textContent = "是";
           else elem3.textContent = "否";
           elem4.textContent = res.data[0].tname;
           elem5.textContent = res.data[0].view;

@@ -1,20 +1,19 @@
 <template>
   <div style="width: 100%; height: 300px">
-    <div id="echartContainer9" style="width: 100%; height: 100%"></div>
+    <div id="echartContainer8" style="width: 100%; height: 100%"></div>
   </div>
 </template>
-
 <script>
 import echarts from "echarts"
 export default {
-  name: "chart2",
+  name: "likeschart",
   data() {
     return {};
   },
   methods: {
     draw() {
       var myChart = this.$echarts.init(
-        document.getElementById("echartContainer9"),
+        document.getElementById("echartContainer8"),
         "infographic"
       );
       myChart.setOption({tooltip: {
@@ -33,7 +32,7 @@ export default {
     xAxis: [
         {
             type: 'value',
-            max: 10000,
+            max: 100000,
             splitLine: {show: false},
             axisLine: {
             show: false
@@ -79,7 +78,7 @@ export default {
     series: [
         {
             showBackground: true,
-            itemStyle: {
+           itemStyle: {
                 color: new echarts.graphic.LinearGradient(
                     0, 0, 0, 1,
                     [
@@ -120,7 +119,7 @@ export default {
     // Enable data zoom when user click bar.
 
       this.$http
-        .get("http://131.mollnn.com:5000/api/coin/distrib/", {
+        .get("http://131.mollnn.com:5000/api/likes/distrib/", {
           headers: { "Access-Control-Allow-Origin": "*" },
         })
         .then((res) => {
@@ -136,10 +135,6 @@ export default {
 </script>
 
 <style></style>
-
-
-
-
 
 
 

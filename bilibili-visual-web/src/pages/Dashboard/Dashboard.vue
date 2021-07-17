@@ -1,12 +1,11 @@
 <template>
-  <!-- 主页的一些东西 -->
   <div class="dashboard-page">
     <h1 class="page-title">视频数据总览</h1>
     <b-row>
       <b-col md="6" xl="3" sm="6" xs="12">
         <div class="pb-xlg h-100">
           <Widget class="h-100 mb-0" title="视频播放总数" close>
-            <label6/>
+            <sumlabel/>
             <!-- <div
               class="d-flex justify-content-between align-items-center mb-lg"
             >
@@ -33,15 +32,14 @@
       <b-col md="6" xl="3" sm="6" xs="12">
         <div class="pb-xlg h-100">
           <Widget class="h-100 mb-0" title="视频收藏分布" close>
-            <chart7 style="height: 175px"></chart7>
-            <!-- <echart :options="cd.echarts.option01" :init-options="initEchartsOptions"></echart> -->
+            <favoritechart style="height: 175px"></favoritechart>
           </Widget>
         </div>
       </b-col>
       <b-col md="6" xl="3" sm="6" xs="12">
         <div class="pb-xlg h-100">
           <Widget class="h-100 mb-0" title="视频点赞分布" close>
-            <chart8 style="height: 175px"></chart8>
+            <likeschart style="height: 175px"></likeschart>
             <!-- <p class="text-muted d-flex flex-wrap">
               <small class="mr-lg d-flex align-items-center">
                 <span
@@ -97,7 +95,7 @@
       <b-col md="6" xl="3" sm="6" xs="12"> 
         <div class="pb-xlg h-100">
           <Widget class="h-100 mb-0" title="视频投币分布" close>
-            <chart9 style="height: 175px"></chart9>
+            <coinchart style="height: 175px"></coinchart>
             <!-- <div class="d-flex align-items-center mb-sm">
               <p class="width-150"><small>60% / 37°С / 3.3 Ghz</small></p>
               <div style="width: calc(100% - 150px)">
@@ -142,25 +140,21 @@
       <b-col md="6" xl="4" sm="6" xs="12">
         <div class="pb-xlg h-100">
           <Widget class="h-100 mb-0" title="视频播放分布" close>
-            <!-- <highcharts :options="donut"></highcharts> -->
-            <chart2 style="height: 175px"></chart2>
-            <!-- <echart :options="cd.echarts.option01" :init-options="initEchartsOptions" style="height: 175px"></echart> -->
+            <viewchart style="height: 175px"></viewchart>
           </Widget>
         </div>
       </b-col>
       <b-col md="6" xl="4" sm="6" xs="12">
         <div class="pb-xlg h-100">
           <Widget class="h-100 mb-0" title="视频时间分布" close>
-            <!-- <echart :options="cd.echarts.option01" :init-options="initEchartsOptions" style="height: 175px"></echart> -->
-            <chart3 style="height: 175px"></chart3>
+            <durationchart style="height: 175px"></durationchart>
           </Widget>
         </div>
       </b-col>
       <b-col md="6" xl="4" sm="6" xs="12">
         <div class="pb-xlg h-100">
           <Widget class="h-100 mb-0" title="视频评论分布" close>
-            <!-- <echart :options="cd.echarts.option01" :init-options="initEchartsOptions" style="height: 175px"></echart> -->
-            <chart4 style="height: 175px"></chart4>
+            <replychart style="height: 175px"></replychart>
           </Widget>
         </div>
       </b-col>
@@ -247,8 +241,7 @@
       <b-col md="6" xl="6" sm="6" xs="12">
         <div class="pb-xlg h-100">
           <Widget class="h-100 mb-0" title="类型分布" close>
-            <!-- <echart :options="cd.echarts.option01" :init-options="initEchartsOptions" style="height: 175px"></echart> -->
-            <chart6 style="height: 250px"></chart6>
+            <typechart style="height: 250px"></typechart>
           </Widget>
         </div>
       </b-col>
@@ -265,41 +258,37 @@ import ECharts from 'vue-echarts/components/ECharts';
 import Highcharts from "highcharts";
 import exporting from "highcharts/modules/exporting";
 import exportData from "highcharts/modules/export-data";
-
 import "echarts/lib/chart/pie";
 import "echarts/lib/chart/line";
 import "echarts/lib/chart/themeRiver";
 import "echarts/lib/component/tooltip";
 import "echarts/lib/component/legend";
-
-exporting(Highcharts);
-exportData(Highcharts);
-
+import viewchart from "@/components/viewchart";
+import durationchart from "@/components/durationchart";
+import replychart from "@/components/replychart";
+import typechart from "@/components/typechart";
+import favoritechart from "@/components/favoritechart";
+import likeschart from "@/components/likeschart";
+import coinchart from "@/components/coinchart";
+import sumlabel from "@/components/sumlabel";
 import { Chart } from "highcharts-vue";
+
+exporting(Highcharts);
+exportData(Highcharts);
 exporting(Highcharts);
 exportData(Highcharts);
 
-import chart2 from "@/components/chart2";
-import chart3 from "@/components/chart3";
-import chart4 from "@/components/chart4";
-import chart5 from "@/components/chart5";
-import chart6 from "@/components/chart6";
-import chart7 from "@/components/chart7";
-import chart8 from "@/components/chart8";
-import chart9 from "@/components/chart9";
-import label6 from "@/components/label6";
 export default {
   name: "Dashboard",
   components: {
-    chart2,
-    chart3,
-    chart4,
-    chart5,
-    chart6,
-    chart7,
-    chart8,
-    chart9,
-    label6,
+    viewchart,
+    durationchart,
+    replychart,
+    typechart,
+    favoritechart,
+    likeschart,
+    coinchart,
+    sumlabel,
     Widget,
     BigStat,
     echart: ECharts,
@@ -321,11 +310,9 @@ export default {
   methods: {
     getRandomData() {
       const arr = [];
-
       for (let i = 0; i < 25; i += 1) {
         arr.push(Math.random().toFixed(1) * 10);
       }
-
       return arr;
     },
     getRevenueData() {

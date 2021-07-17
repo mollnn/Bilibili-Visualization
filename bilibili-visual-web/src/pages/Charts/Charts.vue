@@ -9,7 +9,7 @@
       <b-col md="6" xl="3" sm="6" xs="12">
         <div class="pb-xlg h-100">
           <Widget class="h-100 mb-0" title ="播放量" close>
-            <label1/>
+            <vinfolabel/>
             <!-- <div
               class="d-flex justify-content-between align-items-center mb-lg"
             >
@@ -36,20 +36,14 @@
       <b-col md="6" xl="6" sm="6" xs="12">
         <div class="pb-xlg h-100">
           <Widget class="h-100 mb-0" title="视频简介" close>
-            <label2 style = "height = 175px"/>
-            <!-- <chart1 style="height: 175px"/> -->
-            <!-- <echart :options="cd.echarts.donut" :init-options="initEchartsOptions" style="height: 175px"></echart> -->
-            <!-- <img src = "../.././assets/people/a1.jpg" style="height = 70px;width = 40px"> -->
+            <vinfodescslabel style = "height = 175px"/>
           </Widget>
         </div>
       </b-col>
       <b-col md="6" xl="3" sm="6" xs="12">
         <div class="pb-xlg h-100">
           <Widget class="h-100 mb-0 " title="视频封面" close>
-            <!-- <chart1 style="height: 175px"/> -->
-            <label3/>
-            <!-- <echart :options="cd.echarts.donut" :init-options="initEchartsOptions" style="height: 175px"></echart> -->
-            <!-- <img src = "../.././assets/people/a1.jpg" style="height = 70px;width = 40px"> -->
+            <vinfophotolabel/>
           </Widget>
         </div>
       </b-col>
@@ -61,7 +55,7 @@
           bodyClass="widget-table-overflow"
           customHeader
         >
-        <label4/>
+        <vinfotable/>
         </Widget>
           
         <!-- <Widget
@@ -80,8 +74,7 @@
               title="<h5>弹幕时刻分布</h5>"
               close collapse customHeader
           >
-            <!-- <echart :options="cd.echarts.line" :init-options="initEchartsOptions" style="height: 400px"></echart> -->
-            <label5/>
+            <vinfodanmuchart/>
           </Widget>
           <!-- <Widget
               title="<h5>Highcharts <span class='fw-semi-bold'>Line Chart</span></h5>"
@@ -118,8 +111,7 @@
         <b-col xs='12' lg='6'>
           <div class="pb-xlg h-100">
             <Widget class="h-100 mb-0" title="弹幕词云" close>
-              <chart10 style="height: 300px"/>
-              <!-- <echart :options="cd.echarts.line" :init-options="initEchartsOptions" style="height: 370px"></echart> -->
+              <vinfodanmmuciyun style="height: 300px"/>
             </Widget>
           </div>
           <!-- <b-row>
@@ -216,36 +208,34 @@
 </template>
 
 <script>
-import chart1 from "@/components/chart1";
-import chart10 from "@/components/chart10";
-import label1 from "@/components/label1";
-import label2 from "@/components/label2";
-import label3 from "@/components/label3";
-import label4 from "@/components/label4";
-import label5 from "@/components/label5";
+import vinfodanmmuciyun from "@/components/vinfodanmmuciyun";
+import vinfolabel from "@/components/vinfolabel";
+import vinfodescslabel from "@/components/vinfodescslabel";
+import vinfophotolabel from "@/components/vinfophotolabel";
+import vinfotable from "@/components/vinfotable";
+import vinfodanmuchart from "@/components/vinfodanmuchart";
 import Widget from "@/components/Widget/Widget";
 import {chartData, liveChart, liveChartInterval} from './mock';
-
 import ECharts from 'vue-echarts/components/ECharts';
 import 'echarts/lib/chart/pie';
 import 'echarts/lib/chart/line';
 import 'echarts/lib/chart/themeRiver';
 import 'echarts/lib/component/tooltip';
 import 'echarts/lib/component/legend';
-
 import Highcharts from 'highcharts';
 import exporting from 'highcharts/modules/exporting';
 import exportData from 'highcharts/modules/export-data';
 import mock from "./mock";
-exporting(Highcharts);
-exportData(Highcharts);
-
 import { Chart } from 'highcharts-vue';
 import Sparklines from '../../components/Sparklines/Sparklines'
 
+exporting(Highcharts);
+exportData(Highcharts);
+
 export default {
   name: "Charts",
-  components: { Widget, echart: ECharts, highcharts: Chart, Sparklines ,chart1,chart10, label1,label2,label3,label4,label5},
+  components: { Widget, echart: ECharts, highcharts: Chart, Sparklines ,
+  vinfodanmmuciyun, vinfolabel,vinfodescslabel,vinfophotolabel,vinfotable,vinfodanmuchart},
   data() {
     return {
       mock,

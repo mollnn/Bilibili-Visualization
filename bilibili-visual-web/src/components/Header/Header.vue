@@ -49,7 +49,7 @@
     </b-nav>
     <a class="navbarBrand d-md-none">
       <i class="fa fa-circle text-danger" />
-      &nbsp; sing &nbsp;
+      &nbsp; V2V &nbsp;
       <i class="fa fa-circle text-primary" />
     </a>
     <b-nav class="ml-auto">

@@ -8,14 +8,12 @@
 var tempuse = "BV1144y1q7ve";
 import Bus from ".././bus.js";
 export default {
-  name: "chart10",
+  name: "vinfodanmmuciyun",
   data() {
     return {};
   },
   methods: {
     ttt() {
-      // var elem1 = document.getElementById("echarContainer10");
-      // elem1.textContent = tempuse;
       this.draw();
     },
     draw() {
@@ -31,7 +29,6 @@ export default {
         //     textStyle: {
         //         fontSize: 23
         //     }
-
         // },
         backgroundColor: "#FFFFFF",
         tooltip: {
@@ -83,17 +80,17 @@ export default {
                 shadowColor: "#333",
               },
             },
-            data: [
-              // { name: "cnm", value: 6666 },
-              // { name: "fff", value: 6666 },
-            ],
+            data: [],
           },
         ],
       });
       this.$http
-        .get("http://131.mollnn.com:5000/api/v/danmu/wordcount/" + tempuse + "/", {
-          headers: { "Access-Control-Allow-Origin": "*" },
-        })
+        .get(
+          "http://131.mollnn.com:5000/api/v/danmu/wordcount/" + tempuse + "/",
+          {
+            headers: { "Access-Control-Allow-Origin": "*" },
+          }
+        )
         .then((res) => {
           myChart.hideLoading();
           myChart.setOption({ series: [{ data: res.data }] });
