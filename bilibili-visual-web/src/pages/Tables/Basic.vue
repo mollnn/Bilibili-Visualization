@@ -248,6 +248,7 @@ export default {
   components: { Widget, Sparklines },
   data() {
     return {
+      timer: null,
       alist: [],
       blist: [],
       clist: [],
@@ -344,6 +345,15 @@ export default {
     this.draw1();
     this.draw2();
     this.draw3();
+    this.timer = setInterval(() => {
+      setTimeout(this.draw1(), 0);
+    }, 1000 * 5);
+    this.timer = setInterval(() => {
+      setTimeout(this.draw2(), 0);
+    }, 1000 * 5);
+    this.timer = setInterval(() => {
+      setTimeout(this.draw3(), 0);
+    }, 1000 * 5);
   },
   methods: {
     draw1() {
@@ -414,6 +424,10 @@ export default {
       const colors = [info, primary, danger, success];
       return { colors: [colors[Math.floor(Math.random() * colors.length)]] };
     },
+  },
+  beforeDestroy() {
+    clearInterval(this.timer);
+    this.timer = null;
   },
 };
 </script>

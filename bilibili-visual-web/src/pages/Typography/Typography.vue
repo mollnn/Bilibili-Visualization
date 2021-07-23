@@ -264,7 +264,7 @@ export default {
         });
     },
     addinfo2() {
-      if (this.msg4 == "" || this.msg5 == "") {
+      if (this.msg5 == "") {
         alert("fuckyou man! get the msg box all full!!!!");
         return;
       } else if (this.msgbb == "" && this.msg3 == "") {
