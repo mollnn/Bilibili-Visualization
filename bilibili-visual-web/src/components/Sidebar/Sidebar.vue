@@ -22,22 +22,6 @@
         />
         <!-- <NavLink
             :activeItem="activeItem"
-            header="Typography"
-            link="/app/typography"
-            iconName="flaticon-list"
-            index="typography"
-            isHeader
-        /> -->
-        <!-- <NavLink
-            :activeItem="activeItem"
-            header="Tables Basic"
-            link="/app/tables"
-            iconName="flaticon-equal-1"
-            index="tables"
-            isHeader
-        /> -->
-        <!-- <NavLink
-            :activeItem="activeItem"
             header="Notifications"
             link="/app/notifications"
             iconName="flaticon-bell"
@@ -62,6 +46,22 @@
             link="/app/components/charts"
             iconName="flaticon-network"
             index="components"
+            isHeader
+        />
+        <NavLink
+            :activeItem="activeItem"
+            header="Typography"
+            link="/app/typography"
+            iconName="flaticon-list"
+            index="typography"
+            isHeader
+        />
+                <NavLink
+            :activeItem="activeItem"
+            header="Tables Basic"
+            link="/app/tables"
+            iconName="flaticon-equal-1"
+            index="tables"
             isHeader
         />
       </ul>

@@ -7,98 +7,112 @@
       <b-col xs="12" lg="6">
         <Widget
           title="<h5>Headings <small class='text-muted'>Default and customized</small></h5>"
-          customHeader close collapse
+          customHeader
+          close
+          collapse
         >
-          <h4>Default headings</h4>
-          <p>Basic headings for everyday use</p>
-          <div class="widget-padding-md w-100 h-100 text-left border rounded overflow-hidden">
-            <b-row>
-              <b-col sm="6">
-                <h1>h1. Heading</h1>
-                <h2>h2. Heading</h2>
-                <h3>h3. Heading</h3>
-                <h4>h4. Heading</h4>
-                <h5>h5. Heading</h5>
-                <h6>h6. Heading</h6>
-              </b-col>
-              <b-col sm="6">
-                <h1 class="text-danger">h1. Heading</h1>
-                <h2 class="text-warning">h2. Heading</h2>
-                <h3 class="text-success">h3. Heading</h3>
-                <h4 class="text-primary">h4. Heading</h4>
-                <h5 class="text-info">h5. Heading</h5>
-                <h6 class="text-inverse">h6. Heading</h6>
-              </b-col>
-            </b-row>
-          </div>
-          <h4 class="mt-5">Customized headings</h4>
-          <p>Enhanced with additional text</p>
-          <div class="widget-padding-md w-100 h-100 text-left border rounded">
-            <h3>
-              Headings <small>And some clarification text</small>
-            </h3>
-          </div>
-          <h4 class="mt-5">Display</h4>
-          <p>Headings to stand out</p>
-          <div class="widget-padding-md w-100 h-100 text-left border rounded overflow-hidden">
-            <h1 class="display-1">Display 1</h1>
-            <h1 class="display-2">Display 2</h1>
-            <h1 class="display-3">Display 3</h1>
-            <h1 class="display-4">Display 4</h1>
-          </div>
-          <h4 class="mt-5">Lead</h4>
-          <p>Make a paragraph stand out by adding <code class="highlighter-rouge">.lead</code>.</p>
-          <div class="widget-padding-md w-100 h-100 text-left border rounded">
-            <p class="lead">Sing App is admin dashboard template built with Bootstrap</p>
-          </div>
+          <h4>Table1---</h4>
+          <b-row>
+            <input
+              type="text"
+              placeholder="输入搜素信息"
+              class="search"
+              v-model="msgaa"
+            />
+            <input
+              type="text"
+              placeholder="输入添加信息1"
+              class="search"
+              v-model="msg1"
+            />
+            <input
+              type="text"
+              placeholder="输入添加信息2"
+              class="search"
+              v-model="msg2"
+            />
+            <button type="button" @click="addinfo1">添加信息</button>
+          </b-row>
+          <table class="table">
+            <thead>
+              <tr>
+                <th>id</th>
+                <th>Bid</th>
+                <th>info</th>
+                <th>删除按钮</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr v-cloak v-for="(item, index) of slist" :key="index">
+                <td>{{ index + 1 }}</td>
+                <td>{{ item[0] }}</td>
+                <td>{{ item[1] }}</td>
+                <td>
+                  <a href="javascript:;" @click="del1(index)">删除</a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
         </Widget>
       </b-col>
       <b-col xs="12" lg="6">
         <Widget
-          title="<h5>Body texts <small className='text-muted'>Variations</small></h5>"
-          customHeader close collapse
+          title="<h5>Headings <small class='text-muted'>Default and customized</small></h5>"
+          customHeader
+          close
+          collapse
         >
-          <h4>Basic texts</h4>
-          <p>Styling for common texts</p>
-          <div class="widget-padding-md w-100 h-100 text-left border rounded">
-            <p>You can use the mark tag to <mark>highlight</mark> text.</p>
-            <p><del>This line of text is meant to be treated as deleted text.</del></p>
-            <p><ins>This line of text is meant to be treated as
-              an addition to the document.</ins></p>
-            <p><small>This line of text is meant to be treated as fine print.</small></p>
-            <p><em>This line rendered as italicized text.</em></p>
-            <p><strong>This line rendered as bold text.</strong></p>
-          </div>
-          <h4 class="mt-5">Font weights</h4>
-          <p>Various font weights supported</p>
-          <div class="widget-padding-md w-100 h-100 text-left border rounded">
-            <p>Thin (default) font weight</p>
-            <p class="fw-normal">Normal font weight</p>
-            <p class="fw-semi-bold">Semi bold to emphasize important thing</p>
-            <p class="fw-bold">Bold font as a high priority</p>
-          </div>
-          <h4 class="mt-5">Colors</h4>
-          <p>Bootstrap state colors can be applied to texts too</p>
-          <div class="widget-padding-md w-100 h-100 text-left border rounded">
-            <p class="text-danger">Some danger text</p>
-            <p class="text-warning">Some warning text</p>
-            <p class="text-success">Some success text</p>
-            <p class="text-primary">Some primary text</p>
-            <p class="text-info">Some info text</p>
-          </div>
-          <h4 class="mt-5">Blockquotes</h4>
-          <p>Citing someone is really easy</p>
-          <div class="widget-padding-md w-100 h-100 text-left border rounded">
-            <blockquote class="blockquote">
-              <p>Don&apos;t get set into one form, adapt it and build your own, and let
-                  it gb-row, be like water. Empty your mind, be formless, shapeless — like water.
-                  Now you put water in a cup, it becomes the cup; You put water into a bottle it
-                  becomes the bottle; You put it in a teapot it becomes the teapot. Now water can
-                  flow or it can crash. Be water, my friend.</p>
-              <footer class="blockquote-footer">Bruce Lee in
-                <cite title="A Warrior's Journey">A Warrior&apos;s Journey</cite></footer>
-            </blockquote>
-          </div>
+          <h4>Table2---</h4>
+          <b-row>
+            <button type="button" @click="execall">执行！</button>
+            <input
+              type="text"
+              placeholder="输入搜索信息"
+              class="search"
+              v-model="msgbb"
+            />
+            <input
+              type="text"
+              placeholder="输入添加信息1"
+              class="search"
+              v-model="msg3"
+            />
+            <input
+              type="text"
+              placeholder="输入添加信息2"
+              class="search"
+              v-model="msg4"
+            />
+            <input
+              type="text"
+              placeholder="输入添加信息3"
+              class="search"
+              v-model="msg5"
+            />
+            <button type="button" @click="addinfo2">添加信息</button>
+          </b-row>
+          <table class="table">
+            <thead>
+              <tr>
+                <th>id</th>
+                <th>Bid</th>
+                <th>info</th>
+                <th>hhh</th>
+                <th>删除按钮</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr v-cloak v-for="(item, index) of blist" :key="index">
+                <td>{{ index + 1 }}</td>
+                <td>{{ item[0] }}</td>
+                <td>{{ item[1] }}</td>
+                <td>{{ item[2] }}</td>
+                <td>
+                  <a href="javascript:;" @click="del2(index)">删除</a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
         </Widget>
       </b-col>
     </b-row>
@@ -106,10 +120,209 @@
 </template>
 
 <script>
-import Widget from '@/components/Widget/Widget';
+import Widget from "@/components/Widget/Widget";
 
 export default {
-  name: 'Typography',
+  name: "Typography",
   components: { Widget },
+  mounted() {
+    this.draw1();
+    this.draw2();
+  },
+  methods: {
+    execall() {
+      this.$forceUpdate();
+      this.$http
+        .get(
+          "http://v2v.mollnn.com:5000/api/exec/" ,
+          {
+            headers: { "Access-Control-Allow-Origin": "*" },
+          }
+        )
+        .then((res) => {
+          console.log(res);
+        });
+    },
+    del1(index) {
+      this.$forceUpdate();
+      this.$http
+        .get(
+          "http://v2v.mollnn.com:5000/api/source/delete/" +
+            this.slist[index][0] +
+            "/" +
+            this.slist[index][1] +
+            "/",
+          {
+            headers: { "Access-Control-Allow-Origin": "*" },
+          }
+        )
+        .then((res) => {
+          this.draw1();
+          console.log(res);
+          this.$forceUpdate();
+        });
+    },
+    addinfo1() {
+      if (this.msg2 == "") {
+        alert("fuckyou man! get the msg box all full!");
+        return;
+      } else if (this.msgaa == "" && this.msg1 == "") {
+        alert("fuckyou man! get the msg box all full!");
+        return;
+      } else if (this.msgaa != "" && this.msg1 != "") {
+        alert("fuckyou man! get the msg box all full!");
+        return;
+      } else {
+        if (this.msgaa == "") {
+          this.$http
+            .get(
+              "http://v2v.mollnn.com:5000/api/source/insert/" +
+                this.msg1 +
+                "/" +
+                this.msg2 +
+                "/",
+              {
+                headers: { "Access-Control-Allow-Origin": "*" },
+              }
+            )
+            .then((res) => {
+              console.log(res);
+              this.draw1();
+              this.$forceUpdate();
+            });
+        } else {
+          this.$http
+            .get(
+              "http://v2v.mollnn.com:5000/api/source/searchinsert/" +
+                this.msgaa +
+                "/" +
+                this.msg2 +
+                "/",
+              {
+                headers: { "Access-Control-Allow-Origin": "*" },
+              }
+            )
+            .then((res) => {
+              console.log(res);
+              this.draw1();
+              this.$forceUpdate();
+            });
+        }
+        this.msg1 = "";
+        this.msg2 = "";
+        this.msgaa = "";
+      }
+    },
+    draw1() {
+      this.$http
+        .get("http://v2v.mollnn.com:5000/api/source/query/", {
+          headers: { "Access-Control-Allow-Origin": "*" },
+        })
+        .then((res) => {
+          this.slist = res.data;
+          this.$forceUpdate();
+        });
+    },
+    del2(index) {
+      this.$forceUpdate();
+      this.$http
+        .get(
+          "http://v2v.mollnn.com:5000/api/template/delete/" +
+            this.blist[index][0] +
+            "/" +
+            this.blist[index][1] +
+            "/" +
+            this.blist[index][2] +
+            "/",
+          {
+            headers: { "Access-Control-Allow-Origin": "*" },
+          }
+        )
+        .then((res) => {
+          this.draw2();
+          console.log(res);
+          this.$forceUpdate();
+        });
+    },
+    addinfo2() {
+      if (this.msg4 == "" || this.msg5 == "") {
+        alert("fuckyou man! get the msg box all full!!!!");
+        return;
+      } else if (this.msgbb == "" && this.msg3 == "") {
+        alert("fuckyou man! get the msg box all full!!!!");
+        return;
+      } else if (this.msgbb != "" && this.msg3 != "") {
+        alert("fuckyou man! get the msg box all full!!!!");
+        return;
+      } else {
+        if (this.msgbb == "") {
+          this.$http
+            .get(
+              "http://v2v.mollnn.com:5000/api/template/insert/" +
+                this.msg3 +
+                "/" +
+                this.msg4 +
+                "/" +
+                this.msg5 +
+                "/",
+              {
+                headers: { "Access-Control-Allow-Origin": "*" },
+              }
+            )
+            .then((res) => {
+              console.log(res);
+              this.draw2();
+              this.$forceUpdate();
+            });
+        } else {
+          this.$http
+            .get(
+              "http://v2v.mollnn.com:5000/api/template/searchinsert/" +
+                this.msgbb +
+                "/" +
+                this.msg4 +
+                "/" +
+                this.msg5 +
+                "/",
+              {
+                headers: { "Access-Control-Allow-Origin": "*" },
+              }
+            )
+            .then((res) => {
+              console.log(res);
+              this.draw2();
+              this.$forceUpdate();
+            });
+        }
+        this.msgbb = "";
+        this.msg3 = "";
+        this.msg4 = "";
+        this.msg5 = "";
+      }
+    },
+    draw2() {
+      this.$http
+        .get("http://v2v.mollnn.com:5000/api/template/query/", {
+          headers: { "Access-Control-Allow-Origin": "*" },
+        })
+        .then((res) => {
+          this.blist = res.data;
+          this.$forceUpdate();
+        });
+    },
+  },
+  data() {
+    return {
+      slist: [],
+      blist: [],
+      msgaa: "",
+      msgbb: "",
+      msg1: "",
+      msg2: "",
+      msg3: "",
+      msg4: "",
+      msg5: "",
+    };
+  },
 };
 </script>

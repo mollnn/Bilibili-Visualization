@@ -8,7 +8,7 @@ import Layout from '@/components/Layout/Layout';
 import TypographyPage from '@/pages/Typography/Typography';
 
 // Tables
-// import TablesBasicPage from '@/pages/Tables/Basic';
+import TablesBasicPage from '@/pages/Tables/Basic';
 
 // Maps
 import GoogleMapPage from '@/pages/Maps/Google';
@@ -68,11 +68,11 @@ export default new Router({
           name: 'ChartsPage',
           component: ChartsPage,
         },
-        // {
-        //   path: 'tables',
-        //   name: 'TablesBasicPage',
-        //   component: TablesBasicPage,
-        // },
+        {
+          path: 'tables',
+          name: 'TablesBasicPage',
+          component: TablesBasicPage,
+        },
         {
           path: 'components/maps',
           name: 'GoogleMapPage',
