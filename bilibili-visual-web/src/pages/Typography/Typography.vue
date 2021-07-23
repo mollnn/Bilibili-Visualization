@@ -13,25 +13,37 @@
         >
           <h4>Table1---</h4>
           <b-row>
-            <input
-              type="text"
-              placeholder="输入搜素信息"
-              class="search"
-              v-model="msgaa"
-            />
-            <input
-              type="text"
-              placeholder="输入添加信息1"
-              class="search"
-              v-model="msg1"
-            />
-            <input
-              type="text"
-              placeholder="输入添加信息2"
-              class="search"
-              v-model="msg2"
-            />
-            <button type="button" @click="addinfo1">添加信息</button>
+            <form class="form-inline" role="form">
+              <div class="form-group">
+                <span style = "padding : 24px"></span>
+                <input
+                  type="text"
+                  placeholder="输入搜素信息"
+                  class="form-control"
+                  v-model="msgaa"
+                />
+                <span style = "padding : 14px"></span>
+                <input
+                  type="text"
+                  placeholder="输入添加信息1"
+                  class="form-control"
+                  v-model="msg1"
+                />
+              </div>
+            </form>
+            <form class="form-inline" role="form">
+              <span style = "padding : 24px"></span>
+              <input
+                type="text"
+                placeholder="输入添加信息2"
+                class="form-control"
+                v-model="msg2"
+              />
+              <span style = "padding : 14px"></span>
+              <button type="button" @click="addinfo1" class="btn btn-primary">
+                添加信息
+              </button>
+            </form>
           </b-row>
           <table class="table">
             <thead>
@@ -64,32 +76,42 @@
         >
           <h4>Table2---</h4>
           <b-row>
-            <button type="button" @click="execall">执行！</button>
+            <form class="form-inline" role="form">
+              <span style = "padding : 24px"></span>
             <input
               type="text"
               placeholder="输入搜索信息"
-              class="search"
+              class="form-control"
               v-model="msgbb"
             />
-            <input
-              type="text"
-              placeholder="输入添加信息1"
-              class="search"
-              v-model="msg3"
-            />
-            <input
-              type="text"
-              placeholder="输入添加信息2"
-              class="search"
-              v-model="msg4"
-            />
+            <span style = "padding : 14px"></span>
             <input
               type="text"
               placeholder="输入添加信息3"
-              class="search"
+              class="form-control"
+              v-model="msg3"
+            />
+            </form>
+            <br><br>
+            <form class="form-inline" role="form">
+              <span style = "padding : 24px"></span>
+            <input
+              type="text"
+              placeholder="输入添加信息5"
+              class="form-control"
               v-model="msg5"
             />
-            <button type="button" @click="addinfo2">添加信息</button>
+            </form>
+            <form class="form-inline" role="form">
+              <span style = "padding : 14px !important"></span>
+            <button type="button" @click="addinfo2" class="btn btn-primary">
+              添加信息
+            </button>
+            <span style = "padding :23px"></span>
+            <button type="button" @click="execall" class="btn btn-primary">
+              执行！
+            </button>
+            </form>
           </b-row>
           <table class="table">
             <thead>
@@ -133,12 +155,9 @@ export default {
     execall() {
       this.$forceUpdate();
       this.$http
-        .get(
-          "http://v2v.mollnn.com:5000/api/exec/" ,
-          {
-            headers: { "Access-Control-Allow-Origin": "*" },
-          }
-        )
+        .get("http://v2v.mollnn.com:5000/api/exec/", {
+          headers: { "Access-Control-Allow-Origin": "*" },
+        })
         .then((res) => {
           console.log(res);
         });
@@ -320,7 +339,7 @@ export default {
       msg1: "",
       msg2: "",
       msg3: "",
-      msg4: "",
+      msg4: 0,
       msg5: "",
     };
   },
